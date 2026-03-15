@@ -27,18 +27,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .hero-bg{position:absolute;inset:0;background:var(--warm);z-index:0}
 .hero-bg::after{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:var(--cream);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:0}
 .hero-left{position:relative;z-index:1;padding-right:4rem}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-d);margin-bottom:1.8rem;opacity:0;animation:fadeUp .8s .1s forwards}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-d);margin-bottom:1.8rem}
 .hero-eyebrow::before{content:'';width:24px;height:2px;background:var(--sage)}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .25s forwards}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem}
 .hero h1 em{font-style:italic;color:var(--sage)}
-.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:440px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s .4s forwards}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .55s forwards}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:440px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-primary{background:var(--ink);color:var(--warm);padding:.85rem 2rem;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;transition:all .25s;display:inline-block}.btn-primary:hover{background:var(--sage-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
 .btn-ghost{background:transparent;color:var(--ink);padding:.85rem 2rem;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;border:1.5px solid var(--border);transition:all .25s;display:inline-block}.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
 .btn-sm{padding:.55rem 1.3rem;font-size:.8rem}
 .btn-sage{background:var(--sage);color:#fff;padding:.85rem 2rem;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;transition:all .25s;display:inline-block}.btn-sage:hover{background:var(--sage-d);transform:translateY(-2px)}
 
-.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:1.1rem;opacity:0;animation:fadeIn 1s .5s forwards}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:1.1rem}
 .hero-img-main{border-radius:18px;overflow:hidden;aspect-ratio:3/4;max-height:420px}
 .hero-img-main img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-stat-row{display:flex;gap:.8rem}
@@ -257,7 +257,7 @@ footer{background:var(--ink);color:#fff;padding:2.5rem 5%;display:flex;justify-c
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:1;transform:none}.reveal.visible{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ─── TABS ─── */
@@ -827,7 +827,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
   <h2 reveal class="reveal">Ready to build your clinic&rsquo;s <em>growth infrastructure?</em></h2>
   <p class="reveal d1">If you want to attract more patients, automate communication, and build a stronger digital presence &mdash; let&rsquo;s talk.</p>
   <div class="cta-btns reveal d2">
-    <a href="/cdn-cgi/l/email-protection#94fcf1f8f8fbd4edf1f0fdfafbe7ede7e0f1f9e7baf7fbf9" class="btn-primary">Book a Strategy Call</a>
+    <a href="mailto:igor.linnick@gmail.com" class="btn-primary">Book a Strategy Call</a>
     <a href="#portfolio" class="btn-ghost">See Our Work</a>
   </div>
 </section>
@@ -856,7 +856,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function openModal(file,title){document.getElementById('mtitle').textContent=title;document.getElementById('mframe').src=file;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('mframe').src='';document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
