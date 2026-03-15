@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health Solutions — Hawaii Wellness Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ocean:       #1b4f6e;
+    --ocean-dark:  #0d2f42;
+    --ocean-light: #2e7da6;
+    --teal:        #3aaea0;
+    --teal-light:  #a8d8d3;
+    --coral:       #e07a5f;
+    --coral-light: #f2c4b8;
+    --sand:        #f5ede0;
+    --sand-dark:   #e8d9c4;
+    --palm:        #4a7c59;
+    --palm-light:  #a8c5a0;
+    --white:       #fdfcfa;
+    --text:        #1a2e24;
+    --muted:       #5a7a6a;
+    --border:      rgba(58,174,160,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 10px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(58,174,160,0.15);
+    box-shadow: 0 2px 20px rgba(27,79,110,0.08);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-wave {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-wave svg { opacity: 0.9; }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .nav-logo-text .top {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 500;
+    color: var(--ocean-dark); letter-spacing: 0.02em;
+  }
+  .nav-logo-text .sub {
+    font-size: 0.62rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--teal);
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    color: white; padding: 11px 26px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: opacity 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 4px 16px rgba(27,79,110,0.25);
+  }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,79,110,0.3); }
+
+  /* ── HERO HEADER ── */
+  .page-header {
+    padding: 100px 64px 0;
+    position: relative; overflow: hidden;
+  }
+  .header-bg {
+    position: absolute; inset: 0;
+    background-image: url('hawaii-hero.jpg');
+    background-size: cover; background-position: center 40%;
+    filter: brightness(0.35) saturate(1.2);
+    z-index: 0;
+  }
+  .header-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,47,66,0.5) 0%,
+      rgba(13,47,66,0.3) 50%,
+      rgba(245,237,224,1) 100%
+    );
+  }
+  .header-content {
+    position: relative; z-index: 1;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+    padding-bottom: 64px;
+  }
+  .header-left { max-width: 580px; }
+  .category-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+    background: rgba(58,174,160,0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(58,174,160,0.4);
+    padding: 6px 16px; border-radius: 50px;
+  }
+  .category-tag span {
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal-light);
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 400; line-height: 1.1;
+    color: white; letter-spacing: -0.01em;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .page-header h1 em { font-style: italic; color: var(--teal-light); }
+  .page-header p {
+    font-size: 1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.78); max-width: 460px;
+  }
+  .header-right {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex-shrink: 0;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--coral), #c96444);
+    color: white; padding: 15px 36px; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.25s, opacity 0.2s;
+    box-shadow: 0 6px 24px rgba(224,122,95,0.4);
+    white-space: nowrap;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(224,122,95,0.5); }
+  .btn-ghost {
+    color: rgba(255,255,255,0.7); font-size: 0.78rem;
+    letter-spacing: 0.06em; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+  }
+  .btn-ghost::after { content: '↓'; }
+  .btn-ghost:hover { color: var(--teal-light); }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--sand);
+    padding: 32px 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--sand-dark);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .trust-text .t-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 500; color: var(--ocean-dark); line-height: 1;
+  }
+  .trust-text .t-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  .trust-divider { width: 1px; height: 40px; background: var(--sand-dark); flex-shrink: 0; }
+
+  /* ── SERVICES GRID ── */
+  .services-section { background: var(--white); }
+  .services-header {
+    padding: 56px 64px 40px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .services-header .sh-line { flex: 1; height: 1px; background: var(--border); }
+  .services-header .sh-label {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal);
+    white-space: nowrap;
+  }
+
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .service-card {
+    background: var(--white);
+    display: flex; flex-direction: column;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .service-card:nth-child(even) { border-right: none; }
+  .service-card:hover { background: #f9fffe; }
+
+  /* Media slot */
+  .service-media-slot {
+    width: 100%; aspect-ratio: 16/9;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--ocean-dark), var(--teal));
+  }
+  .service-media-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .service-media-slot iframe { width: 100%; height: 100%; border: none; display: block; }
+  .service-media-slot .placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  }
+  .slot-icon {
+    width: 52px; height: 52px;
+    border: 1px solid rgba(255,255,255,0.3); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1);
+  }
+  .slot-label { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+  /* Card number badge */
+  .service-num-badge {
+    position: absolute; top: 16px; left: 16px; z-index: 2;
+    background: rgba(13,47,66,0.75); backdrop-filter: blur(8px);
+    color: var(--teal-light); padding: 4px 12px; border-radius: 50px;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid rgba(58,174,160,0.3);
+  }
+
+  .service-body { padding: 28px 32px 32px; flex: 1; display: flex; flex-direction: column; }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 400;
+    color: var(--ocean-dark); line-height: 1.2; margin-bottom: 12px;
+  }
+  .service-desc { font-size: 0.88rem; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+
+  /* READ MORE EXPAND */
+  .read-more-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
+    opacity: 0;
+  }
+  .read-more-content.open { max-height: 3000px; opacity: 1; }
+
+  .expand-media {
+    width: 100%; aspect-ratio: 16/9;
+    background: linear-gradient(135deg, var(--ocean-dark), var(--teal));
+    border-radius: 8px; margin: 0 0 20px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .expand-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .expand-media iframe { width: 100%; height: 100%; border: none; display: block; }
+  .expand-media .placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+
+  .expand-section { margin-bottom: 18px; }
+  .expand-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--ocean-dark); margin-bottom: 8px;
+  }
+  .expand-section p { font-size: 0.85rem; line-height: 1.8; color: var(--muted); }
+  .expand-section ul { list-style: none; padding: 0; }
+  .expand-section ul li {
+    font-size: 0.85rem; line-height: 1.75; color: var(--muted);
+    padding-left: 18px; position: relative; margin-bottom: 4px;
+  }
+  .expand-section ul li::before { content: '✦'; position: absolute; left: 0; color: var(--teal); font-size: 0.55rem; top: 5px; }
+  .expand-divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+  .testimonial-inline {
+    background: linear-gradient(135deg, rgba(58,174,160,0.08), rgba(27,79,110,0.06));
+    border-left: 3px solid var(--teal);
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+  }
+  .testimonial-inline blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; font-style: italic;
+    color: var(--ocean-dark); line-height: 1.65; margin-bottom: 8px;
+  }
+  .testimonial-inline cite { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+
+  .service-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+  .btn-book {
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    color: white; padding: 13px 20px; border-radius: 50px; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; text-align: center; display: block;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(27,79,110,0.2);
+  }
+  .btn-book:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,79,110,0.3); }
+  .btn-read {
+    background: transparent; color: var(--ocean);
+    padding: 12px 20px; border-radius: 50px;
+    border: 1.5px solid rgba(27,79,110,0.2);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; text-align: center; display: block; cursor: pointer;
+    transition: border-color 0.25s, background 0.25s, color 0.25s;
+  }
+  .btn-read:hover, .btn-read.active { border-color: var(--teal); color: var(--teal); background: rgba(58,174,160,0.06); }
+
+  /* ── TESTIMONIAL STRIP ── */
+  .testimonial-strip {
+    position: relative; overflow: hidden;
+    padding: 80px 64px;
+  }
+  .testimonial-bg {
+    position: absolute; inset: 0;
+    background-image: url('hawaii-waikiki.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(0.25) saturate(1.4);
+  }
+  .testimonial-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,47,66,0.85), rgba(58,174,160,0.6));
+  }
+  .testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .testimonial-inner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-style: italic; color: white; line-height: 1.6; margin-bottom: 28px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .testimonial-meta { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .testimonial-meta .t-line { width: 32px; height: 1px; background: var(--teal-light); }
+  .testimonial-meta .t-name { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-light); }
+
+  /* ── BOOKING ── */
+  .booking {
+    padding: 100px 64px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    background: var(--white);
+  }
+  .booking-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    color: var(--ocean-dark); line-height: 1.2; margin-bottom: 20px;
+  }
+  .booking-left h2 em { font-style: italic; color: var(--teal); }
+  .booking-left p { font-size: 0.93rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
+
+  /* Decorative Hawaii image strip */
+  .booking-images {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 32px; border-radius: 12px; overflow: hidden;
+  }
+  .booking-images img { width: 100%; height: 120px; object-fit: cover; display: block; }
+
+  .booking-form {
+    background: var(--sand);
+    border: 1px solid var(--sand-dark);
+    padding: 44px; border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(27,79,110,0.08);
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--ocean-dark);
+    margin-bottom: 28px; text-align: center;
+  }
+  .form-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+  .form-row { margin-bottom: 16px; }
+  .form-input {
+    width: 100%; padding: 13px 16px;
+    border: 1.5px solid var(--sand-dark);
+    background: var(--white); border-radius: 8px; outline: none;
+    font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--text);
+    transition: border-color 0.2s; appearance: none;
+  }
+  .form-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(58,174,160,0.1); }
+  .form-input::placeholder { color: var(--muted); opacity: 0.6; }
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--coral), #c96444);
+    color: white; padding: 16px; border: none; border-radius: 50px; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; margin-top: 8px;
+    box-shadow: 0 6px 20px rgba(224,122,95,0.35);
+  }
+  .form-submit:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(224,122,95,0.45); }
+  .form-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 12px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ocean-dark);
+    padding: 40px 64px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-wave {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--teal), var(--ocean-light));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .footer-logo-text .top { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: white; }
+  .footer-logo-text .sub { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-light); }
+  .footer-copy { font-size: 0.7rem; color: rgba(168,216,211,0.4); letter-spacing: 0.06em; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .header-content > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .header-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .header-content > *:nth-child(2) { animation-delay: 0.25s; }
+  .service-card { animation: fadeUp 0.6s ease forwards; opacity: 0; }
+  .service-card:nth-child(1) { animation-delay: 0.2s; }
+  .service-card:nth-child(2) { animation-delay: 0.32s; }
+  .service-card:nth-child(3) { animation-delay: 0.44s; }
+  .service-card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav { padding: 14px 20px; }
+    .page-header { padding: 90px 24px 0; }
+    .header-content { padding-bottom: 48px; flex-direction: column; align-items: flex-start; }
+    .header-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .trust-bar { padding: 28px 24px; }
+    .trust-divider { display: none; }
+    .services-header { padding: 40px 24px 28px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .testimonial-strip { padding: 56px 24px; }
+    .booking { grid-template-columns: 1fr; padding: 64px 24px; gap: 40px; }
+    footer { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Hawaii Wellness Clinic" style="height: 56px; width: auto;">
+  </a>
+</nav>
+
+<!-- HERO HEADER with Hawaii background -->
+<div class="page-header">
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="header-left">
+      <div class="category-tag">
+        <span>Mental Health Solutions</span>
+      </div>
+      <h1>Find <em>clarity,</em> relief,<br>and balance again.</h1>
+      <p>Evidence-based treatments for depression, anxiety, and mood disorders — delivered by board-certified specialists in Honolulu, Kona, and Maui.</p>
+    </div>
+    <div class="header-right">
+      <a href="#book" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-ghost">See our services</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5 6.5 5z" fill="white"/></svg></div>
+    <div class="trust-text"><div class="t-num">98%</div><div class="t-label">Patient satisfaction</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5 2 3 4 3 7c0 4 5 7 5 7s5-3 5-7c0-3-2-5-5-5z" stroke="white" stroke-width="1.4" fill="none"/><circle cx="8" cy="7" r="1.5" fill="white"/></svg></div>
+    <div class="trust-text"><div class="t-num">1,000+</div><div class="t-label">Patients helped</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M6 8l1.5 1.5L10 6" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+    <div class="trust-text"><div class="t-num">FDA</div><div class="t-label">Cleared protocols</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1 3h3l-2.5 2 1 3L8 8.5 5.5 10l1-3L4 5h3z" stroke="white" stroke-width="1.2" fill="none"/></svg></div>
+    <div class="trust-text"><div class="t-num">Board</div><div class="t-label">Certified physicians</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <span class="sh-line"></span>
+    <span class="sh-label">Our Treatments</span>
+    <span class="sh-line"></span>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- 01: EXOMIND TMS -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">01 — ExoMind TMS</span>
+        <iframe src="https://player.vimeo.com/video/1171377875?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">ExoMind TMS</h3>
+        <p class="service-desc">FDA-cleared, drug-free brain stimulation using advanced ExoTMS™ technology. Gentle magnetic pulses target mood-regulating brain regions — no medication, no sedation, no downtime.</p>
+        <div class="read-more-content" id="expand-tms">
+          <div class="expand-media">
+            <img src="tms-photo.png" alt="ExoMind TMS treatment session">
+          </div>
+          <div class="expand-section">
+            <h4>Who It's For</h4>
+            <ul>
+              <li>Depression that hasn't improved with medications</li>
+              <li>Ongoing anxiety, brain fog, or emotional exhaustion</li>
+              <li>Those who prefer to avoid psychiatric medications</li>
+              <li>Sensitivity or poor tolerance to antidepressants</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>What to Expect</h4>
+            <p>Sessions are under 30 minutes. Most patients feel only a light tapping sensation. No sedation, no recovery time — drive yourself home immediately. Treatment plans typically span 4–6 weeks, 5 days per week.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Benefits</h4>
+            <ul>
+              <li>Non-invasive and drug-free</li>
+              <li>Minimal side effects — no systemic impact</li>
+              <li>Improves mood, focus, and emotional stability</li>
+              <li>Can reduce dependence on medications</li>
+              <li>Available at Honolulu, Kona, and Maui locations</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"ExoMind helped me get off antidepressants after 8 years. I feel clearer and more myself than I have in a long time."</blockquote>
+            <cite>— Patient, Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-tms', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02: KETAMINE IV -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">02 — Ketamine IV</span>
+        <iframe src="https://player.vimeo.com/video/1116064311?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0&title=0&byline=0&portrait=0&h=9b0fadbc31" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Ketamine IV Therapy</h3>
+        <p class="service-desc">Rapid-acting relief for treatment-resistant depression, PTSD, and chronic pain — administered by our board-certified anesthesiology team in a spa-inspired Hawaiian setting.</p>
+        <div class="read-more-content" id="expand-ketamine">
+          <div class="expand-media">
+            <img src="ketamine-photo.jpg" alt="Ketamine therapy relaxation">
+          </div>
+          <div class="expand-section">
+            <h4>Who Can Benefit</h4>
+            <ul>
+              <li>Treatment-Resistant Depression</li>
+              <li>Post-Traumatic Stress Disorder (PTSD)</li>
+              <li>Anxiety Disorders &amp; OCD</li>
+              <li>Bipolar Depression (adjunctive therapy)</li>
+              <li>Chronic Pain &amp; CRPS</li>
+              <li>Suicidal Ideation (emergency protocols available)</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Your Treatment Journey</h4>
+            <p>A slow IV infusion of 40–60 minutes in our spa-inspired lounge — calming Hawaiian music, plush pillows, aromatherapy. Many patients notice improvement within 24–48 hours. Protocols range from a standard 6-infusion course to maintenance schedules.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Pricing</h4>
+            <ul>
+              <li>Standard rate: $450 per infusion</li>
+              <li>Tiered discounts for 6- and 12-session packages</li>
+              <li>Veterans &amp; First Responders: $260 per infusion</li>
+              <li>Many plans cover ketamine for FDA-approved indications</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"After 20 years of battling depression, ketamine at Hawaii Wellness was the first thing that actually gave me relief. I finally feel like myself again."</blockquote>
+            <cite>— Kala M., O'ahu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-ketamine', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: STELLATE GANGLION BLOCK -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">03 — SGB</span>
+        <img src="sgb-sunset.png" alt="Stellate Ganglion Block — Hawaii Wellness Clinic">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Stellate Ganglion Block</h3>
+        <p class="service-desc">A targeted, minimally invasive injection that resets the sympathetic "fight-or-flight" response — rapid relief from PTSD, chronic pain, and migraines. Often effective after just one treatment.</p>
+        <div class="read-more-content" id="expand-sgb">
+          <div class="expand-media">
+            <iframe src="https://player.vimeo.com/video/1171379373?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay"></iframe>
+          </div>
+          <div class="expand-section">
+            <h4>Who Benefits</h4>
+            <ul>
+              <li>PTSD and trauma survivors — fast-acting relief from hypervigilance</li>
+              <li>First Responders &amp; Veterans with chronic stress reactions</li>
+              <li>Chronic pain patients with neck, shoulder, or arm pain</li>
+              <li>Headache &amp; Migraine sufferers</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>The Procedure</h4>
+            <p>Using real-time ultrasound imaging, your board-certified anesthesiologist administers a precise local anesthetic in minutes. 30–45 minutes recovery — many patients notice warmth spreading, a sign the block is working.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Results</h4>
+            <ul>
+              <li>Single SGB often provides weeks to months of relief</li>
+              <li>Series protocol (2–3 blocks) for sustained benefit</li>
+              <li>Low-risk with rare, temporary side effects</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"After just one SGB, my nightmares stopped and the tension in my shoulders melted away. I'm finally sleeping again."</blockquote>
+            <cite>— Captain A. Rivera, Honolulu Fire Department</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-sgb', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: ESKETAMINE (SPRAVATO) -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">04 — Spravato</span>
+        <img src="spravato-main.png" alt="Spravato esketamine nasal spray">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Esketamine (Spravato)</h3>
+        <p class="service-desc">FDA-approved nasal spray for treatment-resistant depression, administered in our certified clinical setting under full medical supervision. A breakthrough for those who haven't responded to traditional antidepressants.</p>
+        <div class="read-more-content" id="expand-spravato">
+          <div class="expand-media">
+            <img src="spravato-consult.jpg" alt="Patient consultation">
+          </div>
+          <div class="expand-section">
+            <h4>Who May Be Eligible</h4>
+            <ul>
+              <li>Adults with treatment-resistant depression</li>
+              <li>Tried multiple antidepressants without improvement</li>
+              <li>Currently under care of a medical provider</li>
+              <li>Meet eligibility after medical evaluation</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Schedule</h4>
+            <p><strong>Initial Phase:</strong> Twice weekly for 4 weeks. <strong>Maintenance Phase:</strong> Reduced frequency based on response. Each visit includes evaluation, nasal spray, and ~2 hour monitored recovery.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Safety</h4>
+            <p>Available only through the certified REMS safety program. All treatments supervised by our licensed psychiatrist. Must be administered in clinic — cannot be taken home.</p>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-spravato', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIAL with Hawaii background -->
+<div class="testimonial-strip">
+  <div class="testimonial-bg"></div>
+  <div class="testimonial-inner">
+    <blockquote>"My chronic migraine attacks dropped from three times a week to once a month. Hawaii Wellness gave me my life back — and I'm hiking again."</blockquote>
+    <div class="testimonial-meta">
+      <span class="t-line"></span>
+      <span class="t-name">Megan T. — Maui</span>
+      <span class="t-line"></span>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<section class="booking" id="book">
+  <div class="booking-left">
+    <h2>Ready to begin your <em>healing journey?</em></h2>
+    <p>Our care team is here to answer your questions and match you with the right treatment. Book a free 15-minute discovery call — no commitment required.</p>
+    <div class="booking-images">
+      <img src="hawaii-hiker.jpg" alt="Active life in Hawaii">
+      <img src="hawaii-jogging.jpg" alt="Wellness in Hawaii">
+    </div>
+    <a href="#book" class="btn-primary">Book a Consultation</a>
+  </div>
+  <div class="booking-form">
+    <div class="form-title">Request Your Consultation</div>
+    <div class="form-row">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-input" placeholder="Jane Smith">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Phone Number</label>
+      <input type="tel" class="form-input" placeholder="(808) 000-0000">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="jane@email.com">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Service of Interest</label>
+      <select class="form-input">
+        <option value="">Select a service</option>
+        <option>ExoMind TMS</option>
+        <option>Ketamine IV Therapy</option>
+        <option>Stellate Ganglion Block (SGB)</option>
+        <option>Esketamine (Spravato)</option>
+      </select>
+    </div>
+    <button class="form-submit">Request My Consultation</button>
+    <div class="form-note">🌺 Free 15-minute discovery call · No commitment required</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Hawaii Wellness Clinic" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+  </div>
+  <div class="footer-copy">© 2025 Hawaii Wellness Clinic. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleExpand(id, btn) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.textContent = isOpen ? 'Read More' : 'Read Less';
+  }
+</script>
+</body>
+</html>

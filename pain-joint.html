@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pain & Joint Solutions — Hawaii Wellness Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ocean:       #1b4f6e;
+    --ocean-dark:  #0d2f42;
+    --ocean-light: #2e7da6;
+    --teal:        #3aaea0;
+    --teal-light:  #a8d8d3;
+    --coral:       #e07a5f;
+    --coral-light: #f2c4b8;
+    --sand:        #f5ede0;
+    --sand-dark:   #e8d9c4;
+    --white:       #fdfcfa;
+    --text:        #1a2e24;
+    --muted:       #5a7a6a;
+    --border:      rgba(58,174,160,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 10px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(58,174,160,0.15);
+    box-shadow: 0 2px 20px rgba(27,79,110,0.08);
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    color: white; padding: 11px 26px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: opacity 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 4px 16px rgba(27,79,110,0.25);
+  }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,79,110,0.3); }
+
+  /* ── HERO HEADER ── */
+  .page-header { padding: 100px 64px 0; position: relative; overflow: hidden; }
+  .header-bg {
+    position: absolute; inset: 0;
+    background-image: url('hawaii-beach-palms.jpg');
+    background-size: cover; background-position: center 50%;
+    filter: brightness(0.35) saturate(1.2); z-index: 0;
+  }
+  .header-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(13,47,66,0.5) 0%, rgba(13,47,66,0.3) 50%, rgba(245,237,224,1) 100%);
+  }
+  .header-content {
+    position: relative; z-index: 1;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap; padding-bottom: 64px;
+  }
+  .header-left { max-width: 580px; }
+  .category-tag {
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;
+    background: rgba(58,174,160,0.2); backdrop-filter: blur(8px);
+    border: 1px solid rgba(58,174,160,0.4); padding: 6px 16px; border-radius: 50px;
+  }
+  .category-tag span { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-light); }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 400; line-height: 1.1;
+    color: white; letter-spacing: -0.01em; margin-bottom: 18px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .page-header h1 em { font-style: italic; color: var(--teal-light); }
+  .page-header p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.78); max-width: 460px; }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex-shrink: 0; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--coral), #c96444);
+    color: white; padding: 15px 36px; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.25s, opacity 0.2s;
+    box-shadow: 0 6px 24px rgba(224,122,95,0.4); white-space: nowrap;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(224,122,95,0.5); }
+  .btn-ghost {
+    color: rgba(255,255,255,0.7); font-size: 0.78rem; letter-spacing: 0.06em;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+  }
+  .btn-ghost::after { content: '↓'; }
+  .btn-ghost:hover { color: var(--teal-light); }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--sand); padding: 32px 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--sand-dark);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .trust-text .t-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--ocean-dark); line-height: 1; }
+  .trust-text .t-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  .trust-divider { width: 1px; height: 40px; background: var(--sand-dark); flex-shrink: 0; }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--white); }
+  .services-header { padding: 56px 64px 40px; display: flex; align-items: center; gap: 20px; }
+  .services-header .sh-line { flex: 1; height: 1px; background: var(--border); }
+  .services-header .sh-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); white-space: nowrap; }
+
+  /* Section divider label */
+  .section-divider {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean));
+    padding: 20px 40px; display: flex; align-items: center; gap: 16px;
+  }
+  .section-divider .sd-line { flex: 1; height: 1px; background: rgba(168,216,211,0.3); }
+  .section-divider .sd-label { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-light); white-space: nowrap; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .service-card {
+    background: var(--white); display: flex; flex-direction: column;
+    border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    overflow: hidden; transition: background 0.3s;
+  }
+  .service-card:nth-child(even) { border-right: none; }
+  .service-card:hover { background: #f9fffe; }
+
+  /* Full-width card */
+  .service-card.full-width {
+    grid-column: 1 / -1; border-right: none;
+    flex-direction: row;
+  }
+  .service-card.full-width .service-media-slot {
+    width: 45%; aspect-ratio: auto; flex-shrink: 0;
+    border-bottom: none; border-right: 1px solid var(--border);
+  }
+  .service-card.full-width .service-body { flex: 1; }
+
+  /* Media slot */
+  .service-media-slot {
+    width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--ocean-dark), var(--teal));
+  }
+  .service-media-slot img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .service-media-slot iframe { width: 100%; height: 100%; border: none; display: block; }
+  .service-media-slot .placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  }
+  .slot-icon {
+    width: 52px; height: 52px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1);
+  }
+  .slot-label { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .service-num-badge {
+    position: absolute; top: 16px; left: 16px; z-index: 2;
+    background: rgba(13,47,66,0.75); backdrop-filter: blur(8px);
+    color: var(--teal-light); padding: 4px 12px; border-radius: 50px;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid rgba(58,174,160,0.3);
+  }
+
+  .service-body { padding: 28px 32px 32px; flex: 1; display: flex; flex-direction: column; }
+  .service-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--ocean-dark); line-height: 1.2; margin-bottom: 12px; }
+  .service-desc { font-size: 0.88rem; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+
+  /* READ MORE EXPAND */
+  .read-more-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease; opacity: 0;
+  }
+  .read-more-content.open { max-height: 3000px; opacity: 1; }
+
+  .expand-media {
+    width: 100%; height: 260px;
+    background: linear-gradient(135deg, var(--ocean-dark), var(--teal));
+    border-radius: 8px; margin: 0 0 20px; overflow: hidden; border: 1px solid var(--border);
+  }
+  .expand-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .expand-media iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  .expand-section { margin-bottom: 18px; }
+  .expand-section h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--ocean-dark); margin-bottom: 8px; }
+  .expand-section p { font-size: 0.85rem; line-height: 1.8; color: var(--muted); }
+  .expand-section ul { list-style: none; padding: 0; }
+  .expand-section ul li { font-size: 0.85rem; line-height: 1.75; color: var(--muted); padding-left: 18px; position: relative; margin-bottom: 4px; }
+  .expand-section ul li::before { content: '✦'; position: absolute; left: 0; color: var(--teal); font-size: 0.55rem; top: 5px; }
+  .expand-divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+  .testimonial-inline {
+    background: linear-gradient(135deg, rgba(58,174,160,0.08), rgba(27,79,110,0.06));
+    border-left: 3px solid var(--teal); padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+  }
+  .testimonial-inline blockquote { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-style: italic; color: var(--ocean-dark); line-height: 1.65; margin-bottom: 8px; }
+  .testimonial-inline cite { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+
+  .service-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 20px; }
+  .btn-book {
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    color: white; padding: 13px 20px; border-radius: 50px; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; text-align: center; display: block;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(27,79,110,0.2);
+  }
+  .btn-book:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,79,110,0.3); }
+  .btn-read {
+    background: transparent; color: var(--ocean); padding: 12px 20px; border-radius: 50px;
+    border: 1.5px solid rgba(27,79,110,0.2); font-family: 'Inter', sans-serif;
+    font-size: 0.76rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; text-align: center; display: block; cursor: pointer;
+    transition: border-color 0.25s, background 0.25s, color 0.25s;
+  }
+  .btn-read:hover, .btn-read.active { border-color: var(--teal); color: var(--teal); background: rgba(58,174,160,0.06); }
+
+  /* ── TESTIMONIAL STRIP ── */
+  .testimonial-strip { position: relative; overflow: hidden; padding: 80px 64px; }
+  .testimonial-bg {
+    position: absolute; inset: 0;
+    background-image: url('hawaii-hiker.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(0.25) saturate(1.4);
+  }
+  .testimonial-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,47,66,0.85), rgba(58,174,160,0.6)); }
+  .testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .testimonial-inner blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-style: italic; color: white; line-height: 1.6; margin-bottom: 28px; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+  .testimonial-meta { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .testimonial-meta .t-line { width: 32px; height: 1px; background: var(--teal-light); }
+  .testimonial-meta .t-name { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-light); }
+
+  /* ── BOOKING ── */
+  .booking { padding: 100px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: var(--white); }
+  .booking-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 2.8rem); color: var(--ocean-dark); line-height: 1.2; margin-bottom: 20px; }
+  .booking-left h2 em { font-style: italic; color: var(--teal); }
+  .booking-left p { font-size: 0.93rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
+  .booking-images { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 32px; border-radius: 12px; overflow: hidden; }
+  .booking-images img { width: 100%; height: 120px; object-fit: cover; display: block; }
+  .booking-form { background: var(--sand); border: 1px solid var(--sand-dark); padding: 44px; border-radius: 16px; box-shadow: 0 8px 40px rgba(27,79,110,0.08); }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ocean-dark); margin-bottom: 28px; text-align: center; }
+  .form-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+  .form-row { margin-bottom: 16px; }
+  .form-input { width: 100%; padding: 13px 16px; border: 1.5px solid var(--sand-dark); background: var(--white); border-radius: 8px; outline: none; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--text); transition: border-color 0.2s; appearance: none; }
+  .form-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(58,174,160,0.1); }
+  .form-input::placeholder { color: var(--muted); opacity: 0.6; }
+  .form-submit { width: 100%; background: linear-gradient(135deg, var(--coral), #c96444); color: white; padding: 16px; border: none; border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; margin-top: 8px; box-shadow: 0 6px 20px rgba(224,122,95,0.35); }
+  .form-submit:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(224,122,95,0.45); }
+  .form-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 12px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ocean-dark); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-copy { font-size: 0.7rem; color: rgba(168,216,211,0.4); letter-spacing: 0.06em; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .header-content > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .header-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .header-content > *:nth-child(2) { animation-delay: 0.25s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav { padding: 14px 20px; }
+    .page-header { padding: 90px 24px 0; }
+    .header-content { padding-bottom: 48px; flex-direction: column; align-items: flex-start; }
+    .header-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .trust-bar { padding: 28px 24px; }
+    .trust-divider { display: none; }
+    .services-header { padding: 40px 24px 28px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .service-card.full-width { flex-direction: column; }
+    .service-card.full-width .service-media-slot { width: 100%; aspect-ratio: 16/9; border-right: none; border-bottom: 1px solid var(--border); }
+    .testimonial-strip { padding: 56px 24px; }
+    .booking { grid-template-columns: 1fr; padding: 64px 24px; gap: 40px; }
+    footer { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#">
+    <img src="logo.png" alt="Hawaii Wellness Clinic" style="height: 56px; width: auto;">
+  </a>
+  <a href="#book" class="nav-cta">Book Consultation</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-header">
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="header-left">
+      <div class="category-tag"><span>Pain & Joint Solutions</span></div>
+      <h1>Move freely.<br><em>Heal naturally.</em><br>No surgery needed.</h1>
+      <p>Advanced, non-surgical regenerative therapies for joints, spine, nerves, and chronic pain — delivered by board-certified specialists in Honolulu, Kona, and Maui.</p>
+    </div>
+    <div class="header-right">
+      <a href="#book" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-ghost">See our services</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5 6.5 5z" fill="white"/></svg></div>
+    <div class="trust-text"><div class="t-num">Non-Surgical</div><div class="t-label">All treatments</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5 2 3 4 3 7c0 4 5 7 5 7s5-3 5-7c0-3-2-5-5-5z" stroke="white" stroke-width="1.4" fill="none"/><circle cx="8" cy="7" r="1.5" fill="white"/></svg></div>
+    <div class="trust-text"><div class="t-num">Ultrasound</div><div class="t-label">Guided precision</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M6 8l1.5 1.5L10 6" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+    <div class="trust-text"><div class="t-num">FDA</div><div class="t-label">Compliant protocols</div></div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1 3h3l-2.5 2 1 3L8 8.5 5.5 10l1-3L4 5h3z" stroke="white" stroke-width="1.2" fill="none"/></svg></div>
+    <div class="trust-text"><div class="t-num">Board</div><div class="t-label">Certified physicians</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <span class="sh-line"></span>
+    <span class="sh-label">Our Pain & Joint Treatments</span>
+    <span class="sh-line"></span>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- DIVIDER: BODY AREA TREATMENTS -->
+    <div class="section-divider">
+      <span class="sd-line"></span>
+      <span class="sd-label">Body Area Treatments</span>
+      <span class="sd-line"></span>
+    </div>
+
+    <!-- 01: REGENERATIVE JOINT THERAPIES -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">01 — Overview</span>
+        <img src="pain-01-joint.jpg" alt="Regenerative Joint Therapies">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Regenerative Joint Therapies</h3>
+        <p class="service-desc">Advanced, non-surgical treatments that help your body heal naturally — relieving pain, restoring mobility, and rebuilding joint health using your body's own biologic potential.</p>
+        <div class="read-more-content" id="expand-rjt">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-01-joint-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>What Is Regenerative Medicine?</h4>
+            <p>Instead of removing or replacing damaged tissue, regenerative therapy stimulates new tissue growth, reduces inflammation, and restores joint function over time — addressing the root cause of discomfort.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Conditions Treated</h4>
+            <ul>
+              <li>Arthritis and degenerative joint disease</li>
+              <li>Meniscus and labral tears</li>
+              <li>Tendon and ligament injuries</li>
+              <li>Chronic inflammation or pain after surgery</li>
+              <li>Sports or overuse injuries</li>
+              <li>Rotator cuff tears</li>
+              <li>Sciatica and back pain</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Why Choose Hawaii Wellness Clinic</h4>
+            <ul>
+              <li>Non-surgical, minimally invasive, performed in-office</li>
+              <li>All injections ultrasound-guided for precision and safety</li>
+              <li>Natural biologic materials — your own body heals itself</li>
+              <li>Personalized plans with comprehensive follow-up</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I had severe knee arthritis and could barely walk. After regenerative therapy, I'm hiking again with no pain."</blockquote>
+            <cite>— Kelly A., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-rjt', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02: BACK PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">02 — Back Pain</span>
+        <img src="pain-02-back.jpg" alt="Back Pain & Disc Health">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Back Pain & Disc Health</h3>
+        <p class="service-desc">Get lasting relief from back pain through advanced regenerative treatments that heal from within — treating the root cause rather than masking symptoms with medication.</p>
+        <div class="read-more-content" id="expand-back">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-02-back-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Sharp or shooting pain in the lower or mid-back</li>
+              <li>Discomfort radiating into the hips or legs</li>
+              <li>Stiffness or tightness after sitting or standing</li>
+              <li>Tingling, burning, or numbness in lower extremities</li>
+              <li>Chronic dull aches that interfere with sleep or activity</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>Platelet-Rich Plasma (PRP) for soft tissue and disc repair</li>
+              <li>Alpha-2 Macroglobulin (A2M) to protect cartilage</li>
+              <li>Shockwave Therapy to improve circulation and reduce stiffness</li>
+              <li>Class IV Laser Therapy for deep tissue healing</li>
+              <li>NAD IV Therapy for cellular recovery support</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I had severe back pain for years. After my regenerative treatments, I can walk and golf again without pain."</blockquote>
+            <cite>— James K., Kona</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-back', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: KNEE PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">03 — Knee Pain</span>
+        <img src="pain-03-knee.jpg" alt="Knee Pain & Mobility Restoration">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Knee Pain & Mobility Restoration</h3>
+        <p class="service-desc">Non-surgical solutions that reduce pain, restore mobility, and help your knees heal naturally — avoiding joint replacement with advanced biologic therapies.</p>
+        <div class="read-more-content" id="expand-knee">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-03-knee-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Sharp or aching pain that worsens with movement</li>
+              <li>Swelling, stiffness, or tenderness around the joint</li>
+              <li>Clicking, grinding, or locking sensations</li>
+              <li>Discomfort when walking, climbing stairs, or standing</li>
+              <li>Pain from arthritis or a past injury</li>
+              <li>Reduced mobility despite physical therapy</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — growth factors promote cartilage repair</li>
+              <li>A2M — neutralizes inflammatory enzymes, slows degeneration</li>
+              <li>BMAC — stem cells from your own bone marrow for cartilage regeneration</li>
+              <li>Shockwave Therapy — increase circulation and stimulate healing</li>
+              <li>Class IV Laser Therapy — deep tissue pain relief</li>
+              <li>NAD IV Therapy — cellular rejuvenation to boost recovery</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I was told I needed knee surgery, but after regenerative therapy, I'm walking pain-free and back to hiking."</blockquote>
+            <cite>— David M., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-knee', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: SHOULDER PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">04 — Shoulder Pain</span>
+        <img src="pain-04-shoulder.jpg" alt="Shoulder Pain & Movement Recovery">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Shoulder Pain & Movement Recovery</h3>
+        <p class="service-desc">Restore full range of motion and strength with non-surgical treatments that repair tendons, reduce inflammation, and address the root cause — from rotator cuff tears to arthritis.</p>
+        <div class="read-more-content" id="expand-shoulder">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-04-shoulder-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Dull or throbbing pain limiting lifting or reaching</li>
+              <li>Sharp pain in the front, side, or top of the shoulder</li>
+              <li>Stiffness or swelling worsening with activity</li>
+              <li>Tingling or burning sensations radiating down the arm</li>
+              <li>Discomfort from bursitis, arthritis, or rotator cuff issues</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — growth factors to repair tendons and soft tissue</li>
+              <li>A2M — reduces inflammation and protects cartilage</li>
+              <li>Shockwave Therapy — break down scar tissue and stimulate healing</li>
+              <li>Class IV Laser Therapy — deep-tissue light energy for recovery</li>
+              <li>NAD IV Therapy — cellular support for optimal tissue health</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I had shoulder pain for months and couldn't lift my arm. After regenerative therapy, my range of motion returned, and I was back to swimming."</blockquote>
+            <cite>— Henry L., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-shoulder', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05: HIP PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">05 — Hip Pain</span>
+        <img src="pain-05-hip.jpg" alt="Hip Pain & Function Restoration">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Hip Pain & Function Restoration</h3>
+        <p class="service-desc">Non-surgical treatments that repair hip joints, reduce pain, and restore your natural mobility — without joint replacement or long rehabilitation periods.</p>
+        <div class="read-more-content" id="expand-hip">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-05-hip-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Deep aching pain radiating into the groin, thigh, or buttocks</li>
+              <li>Stiffness limiting your range of motion</li>
+              <li>Clicking or catching when moving the hip</li>
+              <li>Sharp outer hip pain with tenderness or swelling</li>
+              <li>Pain caused by arthritis, bursitis, or labral tears</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — growth factors repair cartilage and ligaments</li>
+              <li>A2M — neutralizes enzymes responsible for joint degeneration</li>
+              <li>Biologic Cell Therapy — rebuilds damaged tissue and improves joint cushioning</li>
+              <li>Shockwave Therapy — stimulates circulation and promotes faster healing</li>
+              <li>Class IV Laser — reduces inflammation and supports recovery</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"The regenerative therapy changed everything. My hip feels stable, and I can hike again pain-free."</blockquote>
+            <cite>— Emily K., Kona</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-hip', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: NECK PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">06 — Neck Pain</span>
+        <img src="pain-06-neck.jpg" alt="Neck & Back Pain Relief">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Neck & Back Pain Relief</h3>
+        <p class="service-desc">Natural, non-surgical treatments that restore mobility, reduce inflammation, and target spinal pain at its source — addressing disc disease, herniation, sciatica, and chronic stiffness.</p>
+        <div class="read-more-content" id="expand-neck">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-06-neck-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Chronic stiffness or limited neck movement</li>
+              <li>Sharp, aching, or radiating pain in neck or lower back</li>
+              <li>Tingling, burning, or numbness in arms, legs, or hands</li>
+              <li>Muscle weakness or spasms</li>
+              <li>Reduced mobility from disc disease or spinal arthritis</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — promotes disc and tissue repair, relieves inflammation</li>
+              <li>A2M — blocks cartilage-degrading enzymes</li>
+              <li>Biologic Cell Therapy — restores disc and joint function</li>
+              <li>Shockwave Therapy — improves blood flow and breaks down scar tissue</li>
+              <li>NAD+ Therapy — replenishes cellular energy and speeds tissue recovery</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"My lower back pain was constant for years. After regenerative therapy, I can sit, walk, and even exercise again without discomfort."</blockquote>
+            <cite>— Michael D., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-neck', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: ANKLE & FOOT -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">07 — Ankle & Foot</span>
+        <img src="pain-07-ankle.jpg" alt="Ankle & Foot Pain Treatment">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Ankle & Foot Pain Treatment</h3>
+        <p class="service-desc">Step confidently again with regenerative therapies that repair ligaments, restore mobility, and help you walk without pain — addressing plantar fasciitis, arthritis, and chronic instability.</p>
+        <div class="read-more-content" id="expand-ankle">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-07-ankle-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Chronic pain, stiffness, or swelling in ankle or foot</li>
+              <li>Pain radiating into the heel or arch</li>
+              <li>Numbness, tingling, or burning sensations</li>
+              <li>Instability or weakness after a sprain or injury</li>
+              <li>Inflammation due to arthritis or tendonitis</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — promotes tendon, ligament, and cartilage repair</li>
+              <li>A2M — protects joint cartilage from degeneration</li>
+              <li>Biologic Cell Therapy — stimulates tissue repair and joint recovery</li>
+              <li>Shockwave Therapy — improves blood flow and breaks down scar tissue</li>
+              <li>Class IV Laser — reduces inflammation and accelerates soft tissue recovery</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I sprained my ankle years ago and it never felt the same. After regenerative treatment, I can run again pain-free."</blockquote>
+            <cite>— Jason M., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-ankle', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08: WRIST & ELBOW -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">08 — Wrist & Elbow</span>
+        <img src="pain-08-wrist.jpg" alt="Wrist & Elbow Pain Relief">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Wrist & Elbow Pain Relief</h3>
+        <p class="service-desc">Safe, non-surgical treatments that repair soft tissues, reduce pain, and restore natural mobility — for tennis elbow, golfer's elbow, carpal tunnel, and repetitive strain injuries.</p>
+        <div class="read-more-content" id="expand-wrist">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-08-elbow-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Dull or throbbing pain worsening with activity</li>
+              <li>Swelling, tenderness, or stiffness in the joint</li>
+              <li>Tingling or numbness in the hand, fingers, or forearm</li>
+              <li>Sharp pain when gripping, twisting, or lifting</li>
+              <li>Weakness or reduced range of motion</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — collagen regeneration and tendon healing</li>
+              <li>A2M — targets and neutralizes enzymes causing tissue breakdown</li>
+              <li>Biologic Cell Therapy — regenerates cartilage and ligaments</li>
+              <li>Shockwave Therapy — improves blood circulation and soft tissue repair</li>
+              <li>Class IV Laser — deep tissue pain relief and inflammation reduction</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"My tennis elbow pain was constant for months. The treatments at Hawaii Wellness Clinic gave me back full motion and strength."</blockquote>
+            <cite>— Daniel R., Kona</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-wrist', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09: PERIPHERAL NEUROPATHY — FULL WIDTH -->
+    <div class="service-card full-width">
+      <div class="service-media-slot">
+        <span class="service-num-badge">09 — Neuropathy</span>
+        <img src="pain-09-neuro.jpg" alt="Peripheral Neuropathy & Nerve Health">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Peripheral Neuropathy & Nerve Health</h3>
+        <p class="service-desc">Regain feeling and function with regenerative nerve therapy — non-surgical treatments that restore nerve health, reduce tingling and numbness, and support lasting comfort for those suffering from diabetic neuropathy, chemotherapy-induced nerve damage, and chronic nerve pain.</p>
+        <div class="read-more-content" id="expand-neuro">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-09-neuro-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>When to Seek Care</h4>
+            <ul>
+              <li>Tingling, burning, or numbness in hands or feet</li>
+              <li>Shooting or stabbing pain in the arms or legs</li>
+              <li>Weakness or loss of coordination</li>
+              <li>Hypersensitivity to touch or temperature</li>
+              <li>Balance issues or difficulty walking</li>
+              <li>No improvement from Gabapentin, Lyrica, or physical therapy</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Treatment Options</h4>
+            <ul>
+              <li>PRP — growth factors promote nerve repair and reduce inflammation</li>
+              <li>A2M — protects nerve tissue from enzyme damage and degeneration</li>
+              <li>Biologic Cell Therapy — promotes nerve and vascular regeneration</li>
+              <li>Class IV Laser — stimulates cellular repair and enhances circulation</li>
+              <li>Shockwave Therapy — oxygenates tissues for faster recovery</li>
+              <li>NAD+ Therapy — supports mitochondrial health and reduces nerve fatigue</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I had severe tingling in my feet from diabetes. After regenerative treatments, I can finally sleep through the night without pain."</blockquote>
+            <cite>— Paul L., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-neuro', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER: REGENERATIVE THERAPIES -->
+    <div class="section-divider">
+      <span class="sd-line"></span>
+      <span class="sd-label">Advanced Regenerative Therapies</span>
+      <span class="sd-line"></span>
+    </div>
+
+    <!-- 10: SHOCKWAVE THERAPY -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">10 — Shockwave</span>
+        <img src="pain-10-shockwave.jpg" alt="Shockwave Therapy">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Shockwave Therapy</h3>
+        <p class="service-desc">Non-invasive focused acoustic waves that stimulate natural tissue repair, reduce inflammation, and restore mobility — FDA-cleared and effective for injuries that haven't responded to other treatments.</p>
+        <div class="read-more-content" id="expand-shockwave">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-10-shockwave-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>How It Works</h4>
+            <p>A handheld device emits focused sound waves into injured tissue, triggering biological responses that increase blood flow, promote collagen production, and reduce chronic inflammation. Each 10–20 minute session is performed in-office without anesthesia or downtime.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Conditions Treated</h4>
+            <ul>
+              <li>Plantar fasciitis and heel spurs</li>
+              <li>Tennis or golfer's elbow</li>
+              <li>Achilles tendinopathy</li>
+              <li>Shoulder and rotator cuff pain</li>
+              <li>Hip bursitis or IT band syndrome</li>
+              <li>Back and neck pain</li>
+              <li>Muscle tightness and scar tissue buildup</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>What to Expect</h4>
+            <ul>
+              <li>Session: 10–20 minutes, mild tapping or tingling sensation</li>
+              <li>Recovery: Resume normal activities immediately</li>
+              <li>Plan: 3–6 sessions spaced one week apart</li>
+              <li>Can be combined with PRP, A2M, or Laser Therapy</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"After months of heel pain from plantar fasciitis, Shockwave Therapy finally gave me relief. I can walk pain-free again."</blockquote>
+            <cite>— Amanda R., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-shockwave', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11: CLASS IV LASER -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">11 — Laser Therapy</span>
+        <img src="pain-11-laser.jpg" alt="Class IV Laser Therapy">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Class IV Laser Therapy</h3>
+        <p class="service-desc">Advanced non-invasive light-based treatment that reduces pain, accelerates healing, and restores function — energizing cells to increase circulation, reduce inflammation, and speed up your body's natural repair process.</p>
+        <div class="read-more-content" id="expand-laser">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-11-laser-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>How It Works</h4>
+            <p>A Class IV laser delivers focused infrared light deep into tissue, stimulating mitochondria to produce more ATP (cellular energy). This enhances cell function, increases blood flow and oxygen delivery, and promotes new tissue growth — producing a soothing warmth during each session.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Conditions Treated</h4>
+            <ul>
+              <li>Joint pain — shoulder, knee, hip, ankle, spine</li>
+              <li>Muscle strains and sports injuries</li>
+              <li>Tendon and ligament injuries</li>
+              <li>Nerve pain and neuropathy</li>
+              <li>Back and neck pain</li>
+              <li>Post-surgical healing support</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>What to Expect</h4>
+            <ul>
+              <li>Session: 10–15 minutes, gentle warm sensation, no pain</li>
+              <li>Recovery: Resume normal activity immediately</li>
+              <li>Plan: 4–8 sessions depending on condition</li>
+              <li>Often combined with PRP, A2M, or Shockwave Therapy</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"After my shoulder injury, laser therapy helped me heal so much faster. I felt a difference after just two sessions."</blockquote>
+            <cite>— Michelle L., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-laser', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12: NAD+ FOR PAIN -->
+    <div class="service-card">
+      <div class="service-media-slot">
+        <span class="service-num-badge">12 — NAD+ Recovery</span>
+        <img src="pain-12-nad.jpg" alt="NAD+ Therapy for Regenerative Recovery">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">NAD+ Therapy for Regenerative Recovery</h3>
+        <p class="service-desc">Cellular-level therapy that supports pain recovery, improves energy metabolism, and enhances tissue repair — replenishing the vital coenzyme that powers every cell in your body.</p>
+        <div class="read-more-content" id="expand-nad-pain">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-12-nad-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>How NAD+ Supports Pain Recovery</h4>
+            <ul>
+              <li>Cellular repair — restores damaged DNA and supports healthy cell regeneration</li>
+              <li>Anti-inflammatory action — reduces oxidative stress and chronic inflammation</li>
+              <li>Energy production — powers mitochondria for improved stamina and healing</li>
+              <li>Nerve support — enhances nerve communication and promotes tissue regeneration</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Conditions Supported</h4>
+            <ul>
+              <li>Chronic fatigue and inflammation</li>
+              <li>Joint and muscle pain</li>
+              <li>Nerve pain or neuropathy</li>
+              <li>Post-surgical recovery</li>
+              <li>Age-related energy decline</li>
+              <li>Enhances and amplifies other regenerative therapies</li>
+            </ul>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>What to Expect</h4>
+            <ul>
+              <li>Session: 60–90 minutes, relaxing IV infusion</li>
+              <li>Frequency: Weekly or as part of a multi-session recovery plan</li>
+              <li>Recovery: No downtime — increased energy often reported afterward</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"After NAD therapy, my energy came back and my pain from old injuries decreased. It made a huge difference in my recovery."</blockquote>
+            <cite>— Hannah M., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-nad-pain', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER: REGENERATIVE INJECTIONS -->
+    <div class="section-divider">
+      <span class="sd-line"></span>
+      <span class="sd-label">Regenerative Injections</span>
+      <span class="sd-line"></span>
+    </div>
+
+    <!-- 13: REGENERATIVE INJECTIONS — FULL WIDTH -->
+    <div class="service-card full-width">
+      <div class="service-media-slot">
+        <span class="service-num-badge">13 — Injections</span>
+        <img src="pain-13-injections.jpg" alt="Regenerative Injections PRP A2M BMAC">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">Regenerative Injections — PRP, A2M, BMAC & Biologics</h3>
+        <p class="service-desc">Our suite of ultrasound-guided regenerative injections use your body's own biologic materials to repair cartilage, tendons, and joints — offering targeted healing with minimal downtime and no surgery required.</p>
+        <div class="read-more-content" id="expand-injections">
+          <div style="height:240px;border-radius:10px;overflow:hidden;margin:20px 0;">
+            <img src="pain-13-injections-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="expand-section">
+            <h4>Platelet-Rich Plasma (PRP)</h4>
+            <p>A small blood sample is drawn, concentrated in a centrifuge to isolate platelets rich in growth factors, then injected into the targeted area. PRP stimulates collagen production, repairs tendons and ligaments, and reduces inflammation. Effective for joint pain, arthritis, tendinopathy, and disc injuries.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Alpha-2 Macroglobulin (A2M)</h4>
+            <p>A2M is a large plasma protein that naturally neutralizes the enzymes responsible for cartilage breakdown and chronic joint inflammation. Particularly effective for early arthritis and degenerative joint conditions — protecting the joint while other therapies stimulate repair.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Bone Marrow Aspiration Concentrate (BMAC)</h4>
+            <p>Stem cells derived from your own bone marrow under light sedation for comfort. BMAC contains mesenchymal stem cells that help regenerate damaged cartilage and connective tissue — particularly effective for advanced knee and hip arthritis and post-surgical recovery.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>Biologic Cell Therapy</h4>
+            <p>Uses a combination of growth factors and regenerative components from FDA-registered sources to enhance your body's natural healing process. Supports long-term joint function, reduces inflammation, and improves strength and flexibility. All materials are sourced from reputable, FDA-compliant laboratories.</p>
+          </div>
+          <div class="expand-divider"></div>
+          <div class="expand-section">
+            <h4>All Injections Are</h4>
+            <ul>
+              <li>Performed under ultrasound visualization for precision and safety</li>
+              <li>Outpatient procedures with minimal downtime</li>
+              <li>Administered by licensed medical professionals</li>
+              <li>FDA-compliant biologic protocols throughout</li>
+            </ul>
+          </div>
+          <div class="testimonial-inline">
+            <blockquote>"I have done a series of trigger point injections and PRP to significantly reduce severe muscle and joint pain. The service they provide is second to none."</blockquote>
+            <cite>— Chris C., Honolulu</cite>
+          </div>
+        </div>
+        <div class="service-actions">
+          <a href="#book" class="btn-book">Book Consultation</a>
+          <button class="btn-read" onclick="toggleExpand('expand-injections', this)">Read More</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIAL STRIP -->
+<div class="testimonial-strip">
+  <div class="testimonial-bg"></div>
+  <div class="testimonial-inner">
+    <blockquote>"Since starting treatments, my life has changed drastically. I can actually sleep again and I'm walking more than I have in years. I'm getting my life back."</blockquote>
+    <div class="testimonial-meta">
+      <span class="t-line"></span>
+      <span class="t-name">Prana S. — Active Duty Military, Honolulu</span>
+      <span class="t-line"></span>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<section class="booking" id="book">
+  <div class="booking-left">
+    <h2>Ready to <em>move freely</em> again?</h2>
+    <p>Our clinical team is here to evaluate your condition and design a personalized regenerative treatment plan. Book a free 15-minute discovery call — no commitment required.</p>
+    <div class="booking-images">
+      <img src="hiker-maui.jpg" alt="Active life in Hawaii">
+      <img src="seniors-dancing-beach.jpg" alt="Pain-free living in Hawaii">
+    </div>
+    <a href="#book" class="btn-primary">Book a Consultation</a>
+  </div>
+  <div class="booking-form">
+    <div class="form-title">Request Your Consultation</div>
+    <div class="form-row">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-input" placeholder="Jane Smith">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Phone Number</label>
+      <input type="tel" class="form-input" placeholder="(808) 000-0000">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="jane@email.com">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Area of Concern</label>
+      <select class="form-input">
+        <option value="">Select a treatment area</option>
+        <option>Regenerative Joint Therapies (Overview)</option>
+        <option>Back Pain & Disc Health</option>
+        <option>Knee Pain & Mobility</option>
+        <option>Shoulder Pain & Movement</option>
+        <option>Hip Pain & Function</option>
+        <option>Neck & Back Pain</option>
+        <option>Ankle & Foot Pain</option>
+        <option>Wrist & Elbow Pain</option>
+        <option>Peripheral Neuropathy & Nerve Health</option>
+        <option>Shockwave Therapy</option>
+        <option>Class IV Laser Therapy</option>
+        <option>NAD+ Regenerative Recovery</option>
+        <option>Regenerative Injections (PRP / A2M / BMAC)</option>
+      </select>
+    </div>
+    <button class="form-submit">Request My Consultation</button>
+    <div class="form-note">🌺 Free 15-minute discovery call · No commitment required</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <img src="logo.png" alt="Hawaii Wellness Clinic" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+  </div>
+  <div class="footer-copy">© 2025 Hawaii Wellness Clinic. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleExpand(id, btn) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.textContent = isOpen ? 'Read More' : 'Read Less';
+  }
+</script>
+</body>
+</html>
