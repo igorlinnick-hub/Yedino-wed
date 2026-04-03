@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cases — Yedino Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0d;--warm:#f8f6f2;--cream:#f0ebe0;--parchment:#e8e0d0;
+  --sage:#5a7d5f;--sage-l:#ddeadf;--sage-d:#3d5941;
+  --clay:#c4724a;--clay-l:#f5ece6;
+  --muted:#6e6860;--border:#ddd8ce;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(248,246,242,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}.logo em{font-style:normal;color:var(--sage)}
+.nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--muted);font-size:.84rem;font-weight:400;transition:color .2s}.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--warm);padding:.48rem 1.25rem;border-radius:100px;font-weight:500;font-size:.82rem;text-decoration:none;transition:all .2s}.nav-cta:hover{background:var(--sage-d)}
+
+/* HERO */
+.cases-hero{padding:10rem 5% 5rem;text-align:center}
+.cases-hero .eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:.9rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.cases-hero .eyebrow::before{content:'';width:20px;height:2px;background:var(--sage)}
+.cases-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,4rem);line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.cases-hero h1 em{font-style:italic;color:var(--sage)}
+.cases-hero p{font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.75;font-weight:300}
+
+/* CASE SECTION */
+.case-section{padding:5rem 5%;border-top:1px solid var(--border)}
+.case-section:nth-child(even){background:var(--cream)}
+.case-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3rem}
+.case-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.case-eyebrow::before{content:'';width:16px;height:2px;background:var(--sage)}
+.case-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem}
+.case-title em{font-style:italic;color:var(--sage)}
+.case-desc{font-size:.92rem;color:var(--muted);line-height:1.8;font-weight:300}
+.case-visual{border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative}
+.case-visual iframe{border-radius:18px}
+.case-visual-inner{text-align:center;color:#fff;padding:2rem}
+.case-visual-inner h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.4rem;font-style:italic}
+.case-visual-inner p{font-size:.78rem;color:rgba(255,255,255,.45)}
+
+/* METRICS */
+.case-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2.5rem}
+.cm{background:var(--warm);padding:1.5rem;text-align:center}
+.case-section:nth-child(even) .cm{background:var(--cream)}
+.cm .val{font-family:'Playfair Display',serif;font-size:2rem;color:var(--sage);line-height:1}
+.cm .lbl{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+
+/* DELIVERABLES */
+.case-deliverables{margin-top:2rem}
+.case-deliverables h4{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:1rem}
+.del-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}
+.del-item{display:flex;align-items:flex-start;gap:.65rem;padding:.85rem 1rem;background:#fff;border:1px solid var(--border);border-radius:12px;transition:all .2s}
+.case-section:nth-child(even) .del-item{background:var(--warm)}
+.del-item:hover{border-color:var(--sage);transform:translateY(-2px)}
+.del-check{width:20px;height:20px;border-radius:50%;background:var(--sage-l);color:var(--sage-d);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
+.del-text{font-size:.82rem;line-height:1.45}
+.del-text strong{display:block;font-weight:600;margin-bottom:.1rem}
+.del-text span{color:var(--muted);font-weight:300}
+
+/* FOOTER */
+footer{background:var(--ink);color:#fff;padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.1rem}
+.flogo{font-family:'Playfair Display',serif;font-size:1.15rem}.flogo em{font-style:normal;color:var(--sage)}
+.flinks{display:flex;gap:1.75rem;flex-wrap:wrap}.flinks a{color:rgba(255,255,255,.28);font-size:.78rem;text-decoration:none;transition:color .2s}.flinks a:hover{color:rgba(255,255,255,.65)}
+.fcopy{font-size:.72rem;color:rgba(255,255,255,.14)}
+
+/* CTA */
+.cta-section{text-align:center;padding:6rem 5%;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(90,125,95,.09) 0%,transparent 68%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.03em;margin:1rem auto 1.2rem;max-width:600px}
+.cta-section h2 em{font-style:italic;color:var(--sage)}
+.cta-section p{font-size:.95rem;color:var(--muted);max-width:440px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
+.btn-primary{background:var(--ink);color:var(--warm);padding:.85rem 2rem;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;transition:all .25s;display:inline-block}.btn-primary:hover{background:var(--sage-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .case-header{grid-template-columns:1fr;gap:2rem}
+  .nav-links{display:none}
+  footer{flex-direction:column;text-align:center}
+}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Yedino<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#automation">Automation</a></li>
+    <li><a href="cases.html" style="color:var(--ink)">Cases</a></li>
+    <li><a href="index.html#results">Results</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="cases-hero">
+  <div class="eyebrow reveal">Case Studies</div>
+  <h1 class="reveal d1">Real Work. <em>Real Results.</em></h1>
+  <p class="reveal d2">Here&rsquo;s what we&rsquo;ve built for clinics and brands &mdash; from full growth infrastructure to event coverage and educational content systems.</p>
+</div>
+
+<!-- CASE 1: Hawaii Wellness Clinic -->
+<section class="case-section">
+  <div class="case-header reveal">
+    <div>
+      <div class="case-eyebrow">Case Study #1</div>
+      <h2 class="case-title">Hawaii Wellness <em>Clinic</em></h2>
+      <p class="case-desc">Full growth infrastructure for a leading regenerative medicine clinic across Honolulu and Kona. We built everything from scratch &mdash; content system, patient communication automation, conversion landing pages, and an entire library of educational videos.</p>
+    </div>
+    <div class="case-visual" style="background:#fff;display:flex;align-items:center;justify-content:center">
+      <img src="images/hwc-logo.png" alt="Hawaii Wellness Clinic" style="width:90%;max-width:480px;display:block">
+    </div>
+  </div>
+
+  <div class="case-metrics reveal d1">
+    <div class="cm"><div class="val">100%</div><div class="lbl">DM delivery rate</div></div>
+    <div class="cm"><div class="val">54.1%</div><div class="lbl">Message open rate</div></div>
+    <div class="cm"><div class="val">10.8%</div><div class="lbl">Click-through rate</div></div>
+    <div class="cm"><div class="val">11</div><div class="lbl">Videos produced</div></div>
+    <div class="cm"><div class="val">4</div><div class="lbl">Landing pages</div></div>
+  </div>
+
+  <div class="case-deliverables reveal d2">
+    <h4>What we delivered</h4>
+    <div class="del-grid">
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>Brand & Social Media</strong><span>Full Instagram content system with 52+ posts per quarter</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>DM Automation</strong><span>24/7 patient communication via Instagram DMs with GHL integration</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>4 Landing Pages</strong><span>Mental Health, Wellness, Pain & Joint, Weight Loss</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>11 Educational Videos</strong><span>Short-form videos for Reels, TikTok, and YouTube Shorts</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>Comment Automation</strong><span>Keyword triggers that send personalized treatment info via DM</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>CRM Integration</strong><span>All leads flow to GoHighLevel with tagging and pipeline automation</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 2: UFC Event -->
+<section class="case-section">
+  <div class="case-header reveal">
+    <div>
+      <div class="case-eyebrow">Case Study #2</div>
+      <h2 class="case-title">UFC Event <em>Coverage</em></h2>
+      <p class="case-desc">Media production and content coverage for a UFC event. We handled on-site filming, social media content creation, and real-time posting across multiple platforms to maximize reach and engagement during the event.</p>
+    </div>
+    <div class="case-visual" style="background:#000;padding:0">
+      <iframe src="https://player.vimeo.com/video/1179778755?badge=0&autopause=0&player_id=0&app_id=58479" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="UFC Event Coverage"></iframe>
+    </div>
+  </div>
+
+  <!-- Event photos -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem;max-width:700px" class="reveal d1">
+    <div style="border-radius:16px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 12px 40px rgba(0,0,0,.1);border:1px solid var(--border)"><img src="images/ufc-event-1.jpg" alt="UFC Event - on-site filming" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div style="border-radius:16px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 12px 40px rgba(0,0,0,.1);border:1px solid var(--border)"><img src="images/ufc-event-2.jpg" alt="UFC Event - Hawaii Wellness Clinic booth" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+  </div>
+
+  <div class="case-deliverables reveal d2">
+    <h4>What we delivered</h4>
+    <div class="del-grid">
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>On-Site Filming</strong><span>Professional video capture of event highlights and behind-the-scenes</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>Real-Time Content</strong><span>Live social media posting during the event across platforms</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>Multi-Platform Distribution</strong><span>Optimized content for Instagram, TikTok, and Facebook</span></div></div>
+      <div class="del-item"><div class="del-check">&check;</div><div class="del-text"><strong>Post-Event Edits</strong><span>Highlight reels and recap content for continued engagement</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="eyebrow reveal" style="justify-content:center">Ready to be next?</div>
+  <h2 class="reveal d1">Let&rsquo;s build your clinic&rsquo;s <em>growth system</em></h2>
+  <p class="reveal d2">If you want results like these &mdash; let&rsquo;s talk about what we can build for you.</p>
+  <a href="mailto:igor.linnick@gmail.com" class="btn-primary reveal d3">Book a Strategy Call</a>
+</section>
+
+<footer>
+  <div class="flogo">Yedino<em>.</em></div>
+  <div class="flinks">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#automation">Automation</a>
+    <a href="cases.html">Cases</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="fcopy">&copy; 2025 Yedino Systems. All rights reserved.</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>50)nav.style.boxShadow='0 2px 20px rgba(0,0,0,.08)';
+  else nav.style.boxShadow='none';
+});
+</script>
+</body>
+</html>

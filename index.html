@@ -285,6 +285,162 @@ footer{background:var(--ink);color:#fff;padding:2.5rem 5%;display:flex;justify-c
   footer{flex-direction:column;text-align:center}
 }
 
+/* ─── VIDEO GRID 3-COL ─── */
+.vid-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+.vid-grid-3 .vtile{aspect-ratio:9/14}
+@media(max-width:900px){.vid-grid-3{grid-template-columns:1fr 1fr}.vid-grid-3 .vtile:last-child{grid-column:1/-1;aspect-ratio:16/9}}
+@media(max-width:520px){.vid-grid-3{grid-template-columns:1fr}.vid-grid-3 .vtile{aspect-ratio:9/14}.vid-grid-3 .vtile:last-child{grid-column:auto}}
+
+/* ─── ANIMATED PHONE MOCKUPS ─── */
+.phone-demo-row{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3.5rem;align-items:start}
+.phone-wrap{display:flex;justify-content:center;align-items:flex-start}
+.phone{width:280px;background:#fff;border-radius:32px;border:3px solid #1a1a1a;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.18);position:relative}
+.phone-notch{width:120px;height:24px;background:#1a1a1a;border-radius:0 0 16px 16px;margin:0 auto;position:relative;z-index:10}
+.phone-screen{padding:0;min-height:420px;position:relative;overflow:hidden;background:#fafafa}
+.phone-header{display:flex;align-items:center;gap:.5rem;padding:.65rem .85rem;background:#fff;border-bottom:1px solid #eee}
+.phone-header-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center}
+.phone-header-av svg{width:14px;height:14px;stroke:#fff}
+.phone-header-name{font-size:.7rem;font-weight:600;color:#111}
+.phone-header-badge{font-size:.55rem;color:var(--sage);font-weight:500}
+
+/* Chat bubbles */
+.chat-area{padding:.75rem;display:flex;flex-direction:column;gap:.5rem;min-height:340px}
+.chat-bubble{max-width:85%;padding:.55rem .75rem;border-radius:14px;font-size:.68rem;line-height:1.5;opacity:0;transform:translateY(12px);animation-fill-mode:forwards}
+.chat-bubble.from{background:#efefef;color:#111;align-self:flex-start;border-bottom-left-radius:4px}
+.chat-bubble.to{background:var(--sage);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-bubble.system{background:var(--sage-l);color:var(--sage-d);align-self:center;font-size:.6rem;font-weight:500;text-align:center;border-radius:10px}
+.chat-actions{display:flex;flex-wrap:wrap;gap:.3rem;opacity:0;transform:translateY(10px);animation-fill-mode:forwards}
+.chat-action-btn{padding:.35rem .7rem;border-radius:100px;font-size:.6rem;font-weight:600;border:1.5px solid var(--sage);color:var(--sage-d);background:#fff;cursor:default;transition:all .2s}
+.chat-action-btn.highlight{background:var(--sage);color:#fff;border-color:var(--sage)}
+.crm-badge{display:flex;align-items:center;gap:.4rem;padding:.4rem .7rem;background:var(--ink);color:#fff;border-radius:10px;font-size:.58rem;font-weight:500;opacity:0;transform:scale(.9);animation-fill-mode:forwards;align-self:center;margin-top:.2rem}
+.crm-badge .dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:crm-pulse 1.5s infinite}
+@keyframes crm-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Comment animation - phone 1 */
+.phone-post{padding:.6rem;background:#fff;border-bottom:1px solid #eee}
+.phone-post-img{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#2d4a35,#5a7d5f);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.4rem}
+.phone-post-img svg{width:36px;height:36px;stroke:rgba(255,255,255,.7)}
+.phone-post-caption{font-size:.6rem;color:#555;line-height:1.4}
+.phone-comment{display:flex;gap:.4rem;align-items:flex-start;padding:.5rem .6rem;background:#fff;border-bottom:1px solid #f0f0f0;opacity:0;transform:translateX(-20px);animation-fill-mode:forwards}
+.phone-comment-av{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);flex-shrink:0}
+.phone-comment-text{font-size:.58rem;color:#333;line-height:1.4}
+.phone-comment-text strong{color:#111;font-weight:600}
+
+/* Typing indicator */
+.typing-dots{display:flex;gap:3px;padding:.4rem .6rem;opacity:0;animation-fill-mode:forwards}
+.typing-dots span{width:5px;height:5px;border-radius:50%;background:#bbb;animation:typing-bounce .6s infinite alternate}
+.typing-dots span:nth-child(2){animation-delay:.15s}
+.typing-dots span:nth-child(3){animation-delay:.3s}
+@keyframes typing-bounce{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+
+/* Phone animation keyframes */
+@keyframes chatAppear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes commentSlide{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes badgeAppear{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+
+/* Phone 1: Comment automation - 12s loop */
+.p1 .phone-comment{animation:commentSlide .5s ease forwards}
+.p1 .c1{animation-delay:1.5s}
+.p1 .typing1{animation:chatAppear .3s ease forwards;animation-delay:2.5s}
+.p1 .dm-notif{animation:chatAppear .4s ease forwards;animation-delay:3.5s}
+.p1 .b1{animation:chatAppear .4s ease forwards;animation-delay:4.5s}
+.p1 .b2{animation:chatAppear .4s ease forwards;animation-delay:5s}
+.p1 .b3{animation:chatAppear .4s ease forwards;animation-delay:5.5s}
+.p1 .act1{animation:chatAppear .4s ease forwards;animation-delay:6.5s}
+.p1 .lp-link{animation:chatAppear .4s ease forwards;animation-delay:7.5s}
+.p1 .crm1{animation:badgeAppear .4s ease forwards;animation-delay:8.5s}
+
+/* Phone 2: Follower funnel - 12s loop */
+.p2 .follow-notif{animation:chatAppear .4s ease forwards;animation-delay:1s}
+.p2 .b1{animation:chatAppear .4s ease forwards;animation-delay:2s}
+.p2 .act2{animation:chatAppear .4s ease forwards;animation-delay:3s}
+.p2 .b2{animation:chatAppear .4s ease forwards;animation-delay:4s}
+.p2 .b3{animation:chatAppear .4s ease forwards;animation-delay:5s}
+.p2 .act3{animation:chatAppear .4s ease forwards;animation-delay:6s}
+.p2 .crm2{animation:badgeAppear .4s ease forwards;animation-delay:7s}
+
+/* Landing page mini preview */
+.lp-mini{background:#fff;border:1px solid #e5e5e5;border-radius:10px;overflow:hidden;opacity:0;transform:translateY(10px);animation-fill-mode:forwards}
+.lp-mini-header{height:28px;background:linear-gradient(135deg,#2d4a35,#5a7d5f);display:flex;align-items:center;justify-content:center}
+.lp-mini-header span{font-size:.5rem;color:rgba(255,255,255,.8);font-weight:500}
+.lp-mini-body{padding:.4rem;display:flex;flex-direction:column;gap:.2rem}
+.lp-mini-line{height:4px;background:#eee;border-radius:2px}
+.lp-mini-line.short{width:60%}
+.lp-mini-btn{height:14px;background:var(--sage);border-radius:4px;width:50%;margin-top:.15rem}
+
+/* Process description next to phone */
+.process-info{padding:1rem 0}
+.process-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.2;margin-bottom:1rem}
+.process-info h3 em{font-style:italic;color:var(--sage)}
+.process-steps{display:flex;flex-direction:column;gap:.75rem}
+.process-step{display:flex;gap:.75rem;align-items:flex-start}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--sage-l);color:var(--sage-d);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-content h4{font-size:.85rem;font-weight:600;margin-bottom:.15rem}
+.step-content p{font-size:.76rem;color:var(--muted);line-height:1.5}
+
+/* ─── MULTI-PLATFORM CONTENT ANIMATION ─── */
+.platform-showcase{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+.platforms-anim{position:relative;height:400px;display:flex;align-items:center;justify-content:center}
+.platform-card{position:absolute;width:220px;background:#fff;border-radius:18px;border:1px solid var(--border);overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,.1);opacity:0;transition:all .6s}
+.platform-card.active{opacity:1;transform:translateY(0) scale(1)!important}
+.platform-card-header{padding:.6rem .8rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid #f0f0f0}
+.platform-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff}
+.platform-icon.ig{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888)}
+.platform-icon.fb{background:#1877f2}
+.platform-icon.tt{background:#010101}
+.platform-card-name{font-size:.7rem;font-weight:600}
+.platform-card-body{padding:.65rem;aspect-ratio:4/5;display:flex;flex-direction:column;gap:.3rem}
+.platform-card-img{flex:1;background:linear-gradient(135deg,var(--sage-l),var(--cream));border-radius:10px;display:flex;align-items:center;justify-content:center}
+.platform-card-img svg{width:28px;height:28px;stroke:var(--sage)}
+.platform-card-stats{display:flex;justify-content:space-around;padding:.4rem 0;font-size:.55rem;color:var(--muted)}
+.platform-card-stats span{font-weight:600;color:var(--sage)}
+
+/* Rotating animation for platforms */
+@keyframes platformRotate{
+  0%,28%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}
+  33%,100%{opacity:0;transform:translateY(-20px) scale(.95)}
+}
+.pc1{animation:platformRotate 9s ease infinite;transform:rotate(-5deg) translateX(-30px)}
+.pc2{animation:platformRotate 9s ease infinite 3s;transform:rotate(3deg) translateX(30px) translateY(20px)}
+.pc3{animation:platformRotate 9s ease infinite 6s;transform:rotate(-2deg) translateX(0) translateY(-10px)}
+
+/* ─── TESTIMONIAL SECTION ─── */
+.testimonial-process{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+.testi-visual{position:relative}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden}
+.testi-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--sage)}
+.testi-card-quote{font-family:'Playfair Display',serif;font-size:1rem;line-height:1.5;font-style:italic;color:var(--ink);margin-bottom:.8rem}
+.testi-card-author{display:flex;align-items:center;gap:.6rem}
+.testi-card-av{width:34px;height:34px;border-radius:50%;background:var(--sage-l);display:flex;align-items:center;justify-content:center}
+.testi-card-av svg{width:16px;height:16px;stroke:var(--sage)}
+.testi-card-name{font-size:.75rem;font-weight:600}
+.testi-card-role{font-size:.65rem;color:var(--muted)}
+.testi-float-badge{position:absolute;bottom:-12px;right:20px;background:var(--ink);color:#fff;padding:.45rem .9rem;border-radius:100px;font-size:.65rem;font-weight:600;display:flex;align-items:center;gap:.4rem;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.testi-float-badge .rec-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;animation:rec-blink 1.2s infinite}
+@keyframes rec-blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Content plan visual */
+.cplan-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1.5rem}
+.cplan-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:.85rem;transition:all .25s}
+.cplan-card:hover{border-color:var(--sage);transform:translateY(-3px);box-shadow:0 8px 24px rgba(90,125,95,.1)}
+.cplan-icon{font-size:1.1rem;margin-bottom:.4rem}
+.cplan-card h5{font-size:.78rem;font-weight:600;margin-bottom:.2rem}
+.cplan-card p{font-size:.68rem;color:var(--muted);line-height:1.45}
+
+/* Doctor trust section */
+.doctor-trust{display:flex;gap:1rem;margin-top:1.5rem;align-items:center;background:var(--sage-l);border-radius:14px;padding:1.2rem}
+.doctor-trust-icon{width:44px;height:44px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doctor-trust-icon svg{width:20px;height:20px;stroke:#fff}
+.doctor-trust-text h5{font-size:.82rem;font-weight:600;margin-bottom:.15rem}
+.doctor-trust-text p{font-size:.72rem;color:var(--muted);line-height:1.45}
+
+@media(max-width:900px){
+  .phone-demo-row,.platform-showcase,.testimonial-process{grid-template-columns:1fr;gap:2rem}
+  .phone{width:260px}
+  .platforms-anim{height:350px}
+  .cplan-grid{grid-template-columns:1fr}
+}
+
 /* Lucide icon sizing */
 .wi-icon svg, .fnode-icon svg, .chip-icon svg, .af-icon svg, .solve-item svg { display:inline-block; vertical-align:middle; }
 .wi-icon svg { width:22px; height:22px; stroke:rgba(255,255,255,.65); }
@@ -318,10 +474,9 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
 <nav>
   <div class="logo">Yedino<em>.</em></div>
   <ul class="nav-links">
-    <li><a href="#who">Who We Help</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#automation">Automation</a></li>
+    <li><a href="cases.html">Cases</a></li>
     <li><a href="#results">Results</a></li>
     <li><a href="#contact" class="nav-cta">Book a Call</a></li>
   </ul>
@@ -333,7 +488,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
   <div class="hero-left">
     <div class="hero-eyebrow">Growth Infrastructure for Wellness Clinics</div>
     <h1>Systems that<br>turn <em>interest</em><br>into booked<br>consultations</h1>
-    <p class="hero-sub">We build the automation, content, and digital infrastructure that helps regenerative, ketamine, and wellness clinics attract patients and grow &mdash; without adding work to your team.</p>
+    <p class="hero-sub">We build automation systems and brand infrastructure that help wellness clinics operate efficiently and grow their patient base &mdash; without adding work to your team.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a Strategy Call</a>
       <a href="#portfolio" class="btn-ghost">See Our Work &rarr;</a>
@@ -344,9 +499,8 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
       <img src="images/image1.jpg" alt="ExoMind treatment at Hawaii Wellness Clinic">
     </div>
     <div class="hero-stat-row">
-      <div class="hero-stat"><div class="val">3.2&times;</div><div class="lbl">More consultations</div></div>
-      <div class="hero-stat"><div class="val">54%</div><div class="lbl">DM open rate</div></div>
-      <div class="hero-stat"><div class="val">24/7</div><div class="lbl">Auto-response</div></div>
+      <div class="hero-stat"><div class="val">3.2&times;</div><div class="lbl">Consultations</div></div>
+      <div class="hero-stat"><div class="val">54%</div><div class="lbl">DM Open Rate</div></div>
     </div>
   </div>
 </section>
@@ -360,8 +514,6 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
     <span class="marquee-item">Regenerative Medicine</span>
     <span class="marquee-item">Functional Medicine</span>
     <span class="marquee-item">NAD+ Therapy</span>
-    <span class="marquee-item">Longevity Centers</span>
-    <span class="marquee-item">Biohacking Clinics</span>
     <span class="marquee-item">Mental Health Clinics</span>
     <span class="marquee-item">Ketamine Therapy</span>
     <span class="marquee-item">Stem Cell Clinics</span>
@@ -369,8 +521,6 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
     <span class="marquee-item">Regenerative Medicine</span>
     <span class="marquee-item">Functional Medicine</span>
     <span class="marquee-item">NAD+ Therapy</span>
-    <span class="marquee-item">Longevity Centers</span>
-    <span class="marquee-item">Biohacking Clinics</span>
     <span class="marquee-item">Mental Health Clinics</span>
   </div>
 </div>
@@ -396,7 +546,6 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
         <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.56 2h6.88"/><path d="M7.42 9.69a7.68 7.68 0 1 0 9.16 0"/><path d="M10.5 15.5h3"/></svg></span>Stem Cell Clinics</span>
         <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span>IV Therapy &amp; NAD+</span>
         <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>Functional Medicine</span>
-        <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Biohacking &amp; Longevity</span>
         <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg></span>Mental Health Clinics</span>
         <span class="chip"><span class="chip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>Weight Loss Programs</span>
       </div>
@@ -454,12 +603,20 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
     <div class="svc-card">
       <div class="svc-num">01</div>
       <span class="svc-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
-      <div class="svc-img">
-        <img src="images/image4.jpg" alt="Content calendar and Instagram strategy">
+      <div class="svc-img" style="background:linear-gradient(135deg,#f0ebe0,#ddeadf);display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center;padding:1.2rem">
+          <div style="display:flex;gap:.5rem;justify-content:center;margin-bottom:.6rem">
+            <div style="width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#f09433,#dc2743);display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+            <div style="width:28px;height:28px;border-radius:7px;background:#1877f2;display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+            <div style="width:28px;height:28px;border-radius:7px;background:#010101;display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></div>
+          </div>
+          <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--sage-d);font-style:italic">Content Strategy</div>
+          <div style="font-size:.65rem;color:var(--muted);margin-top:.2rem">Reels &middot; Stories &middot; TikTok &middot; Posts</div>
+        </div>
       </div>
-      <h3>Educational Content Systems</h3>
+      <h3>Brand &amp; Social Media Development</h3>
       <p>Consistent, trust-building content that helps patients understand complex treatments and feel confident booking a consultation.</p>
-      <div class="svc-tags"><span class="stag">Instagram Strategy</span><span class="stag">Short-Form Video</span><span class="stag">Reels &amp; Shorts</span><span class="stag">Content Calendar</span></div>
+      <div class="svc-tags"><span class="stag">Instagram Strategy</span><span class="stag">Short-Form Video</span><span class="stag">Reels</span><span class="stag">Brand Voice</span></div>
     </div>
     <div class="svc-card">
       <div class="svc-num">02</div>
@@ -483,7 +640,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
       </div>
       <h3>Patient Communication Automation</h3>
       <p>Instant, personalized responses to every inquiry &mdash; 24/7. Qualify leads, answer FAQs, and guide patients toward booking without lifting a finger.</p>
-      <div class="svc-tags"><span class="stag">DM Automation</span><span class="stag">Lead Qualification</span><span class="stag">FAQ Bot</span><span class="stag">24/7 Response</span></div>
+      <div class="svc-tags"><span class="stag">DM Automation</span><span class="stag">Lead Qualification</span><span class="stag">FAQ Bot</span><span class="stag">24/7 Response</span><span class="stag">GoHighLevel (GHL)</span></div>
     </div>
     <div class="svc-card">
       <div class="svc-num">03</div>
@@ -495,20 +652,27 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
           <div style="font-size:.7rem;opacity:.65">Ketamine &middot; SGB &middot; ExoMind</div>
         </div>
       </div>
-      <h3>Conversion-Focused Landing Pages</h3>
+      <h3>Conversion Landing Pages</h3>
       <p>Custom pages per treatment that explain what you offer clearly, build credibility, and make it easy for patients to take the next step.</p>
       <div class="svc-tags"><span class="stag">Ketamine Therapy</span><span class="stag">Stem Cell Pages</span><span class="stag">IV Therapy</span><span class="stag">NAD+ Recovery</span></div>
     </div>
     <div class="svc-card">
       <div class="svc-num">04</div>
       <span class="svc-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
-      <div class="svc-img" style="display:flex;gap:.5rem;padding:1rem;background:#f8f6f2;align-items:center;justify-content:center">
-        <img src="images/image5.jpg" alt="Mobile app" style="width:90px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.15)">
-        <img src="images/image6.jpg" alt="Linktree" style="width:90px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12)">
+      <div class="svc-img" style="background:linear-gradient(135deg,#1a1a1a,#333);display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center;padding:1.2rem">
+          <div style="display:flex;gap:.4rem;justify-content:center;margin-bottom:.6rem">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          </div>
+          <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:#fff;font-style:italic">Growth Strategy</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.5);margin-top:.2rem">Ads &middot; Funnels &middot; ROI</div>
+        </div>
       </div>
-      <h3>Patient Experience &amp; Digital Presence</h3>
-      <p>Mobile app setup, Linktree, automated review collection, and reputation management &mdash; building trust and social proof at scale.</p>
-      <div class="svc-tags"><span class="stag">Review Automation</span><span class="stag">Mobile Apps</span><span class="stag">Linktree</span><span class="stag">Reputation</span></div>
+      <h3>Paid Media &amp; Growth Strategy</h3>
+      <p>We help clinics that don&rsquo;t have an agency find the right advertising partner &mdash; and ensure campaigns align with your automation systems for maximum ROI.</p>
+      <div class="svc-tags"><span class="stag">Ad Agency Matchmaking</span><span class="stag">Funnel Alignment</span><span class="stag">ROI Tracking</span></div>
+      <div style="margin-top:.75rem;font-size:.68rem;color:var(--muted);font-style:italic">Available as an add-on when no agency is in place</div>
     </div>
   </div>
 </section>
@@ -550,178 +714,214 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
       </div>
     </div>
     <div class="content-right">
-      <div class="eyebrow reveal">Real Client Work</div>
+      <div class="eyebrow reveal">What We Build</div>
       <h2 class="display reveal d1">Content that <em>educates</em> and converts</h2>
-      <p class="body-text reveal d2">Every post is crafted to move a potential patient one step closer to booking &mdash; explaining complex treatments in ways that feel accessible and trustworthy.</p>
-      <div class="content-stats reveal d3">
-        <div class="cstat"><div class="val">11</div><div class="lbl">Educational videos produced</div></div>
-        <div class="cstat"><div class="val">52+</div><div class="lbl">Posts per quarter</div></div>
-        <div class="cstat"><div class="val">100%</div><div class="lbl">Treatment-specific content</div></div>
-        <div class="cstat"><div class="val">98%</div><div class="lbl">Patient satisfaction rate</div></div>
-      </div>
+      <p class="body-text reveal d2">Every post is designed to move a potential patient one step closer to booking &mdash; explaining complex treatments in ways that feel accessible and build trust in your brand.</p>
       <div style="margin-top:1.75rem" class="reveal d3">
-        <a href="https://www.instagram.com/hawaiiwellnessclinic/" target="_blank" class="btn-ghost btn-sm">View Live on Instagram <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <a href="https://www.instagram.com/hawaiiwellnessclinic/" target="_blank" class="btn-ghost btn-sm">View Live Example <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── VIDEO PROOF ─── -->
-<section class="section section-alt">
-  <div class="video-layout">
+<!-- ─── MULTI-PLATFORM CONTENT ─── -->
+<section class="section section-alt" id="content-platforms">
+  <div class="platform-showcase reveal">
+    <div class="platforms-anim" id="platformAnim">
+      <!-- Instagram card -->
+      <div class="platform-card pc-ig" style="transform:rotate(-5deg) translateX(-30px)">
+        <div class="platform-card-header">
+          <div class="platform-icon ig">IG</div>
+          <div class="platform-card-name">Instagram</div>
+        </div>
+        <div class="platform-card-body">
+          <div class="platform-card-img" style="background:linear-gradient(135deg,#f09433,#dc2743);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            <span style="color:#fff;font-size:.6rem;font-weight:500">Reels &middot; Stories &middot; Posts</span>
+          </div>
+          <div class="platform-card-stats">
+            <div>Posts: <span>52+/qtr</span></div>
+            <div>Reach: <span>15K+</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Facebook card -->
+      <div class="platform-card pc-fb" style="transform:rotate(3deg) translateX(30px) translateY(20px)">
+        <div class="platform-card-header">
+          <div class="platform-icon fb">f</div>
+          <div class="platform-card-name">Facebook</div>
+        </div>
+        <div class="platform-card-body">
+          <div class="platform-card-img" style="background:linear-gradient(135deg,#1877f2,#42a5f5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span style="color:#fff;font-size:.6rem;font-weight:500">Pages &middot; Ads &middot; Groups</span>
+          </div>
+          <div class="platform-card-stats">
+            <div>Ads: <span>Active</span></div>
+            <div>CTR: <span>3.2%</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- TikTok card -->
+      <div class="platform-card pc-tt" style="transform:rotate(-2deg) translateX(0) translateY(-10px)">
+        <div class="platform-card-header">
+          <div class="platform-icon tt" style="font-size:.6rem">TT</div>
+          <div class="platform-card-name">TikTok</div>
+        </div>
+        <div class="platform-card-body">
+          <div class="platform-card-img" style="background:linear-gradient(135deg,#010101,#25f4ee);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+            <span style="color:#fff;font-size:.6rem;font-weight:500">Short-Form &middot; Viral Content</span>
+          </div>
+          <div class="platform-card-stats">
+            <div>Videos: <span>11+</span></div>
+            <div>Views: <span>Growing</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
-      <div class="eyebrow reveal">Video Library</div>
-      <h2 class="display reveal d1">11 educational videos <em>produced</em> for every treatment</h2>
-      <p class="body-text reveal d2">Short-form videos designed for Reels, TikTok, and YouTube Shorts. Each one answers the questions patients are already searching for.</p>
-      <div style="margin-top:2rem" class="reveal d3">
-        <a href="https://vimeo.com/user/13820033/folder/28271673" target="_blank" class="btn-primary">View Full Video Library &rarr;</a>
+      <div class="eyebrow">Multi-Platform Content</div>
+      <h2 class="display">We manage your presence across <em>every major platform</em></h2>
+      <p class="body-text">From Instagram Reels to TikTok short-form to Facebook ads &mdash; we create, schedule, and optimize content tailored to each platform&rsquo;s algorithm and audience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS & CONTENT PLAN ─── -->
+<section class="section">
+  <div class="testimonial-process reveal">
+    <div>
+      <div class="eyebrow">Testimonials &amp; Brand Trust</div>
+      <h2 class="display">We film testimonials and build a <em>content plan</em> for your doctor</h2>
+      <p class="body-text">Real patient stories build trust faster than any ad. We help you capture authentic testimonials, write custom content for your head physician, and create a strategic content plan that positions them as the trusted authority in your field.</p>
+      <div class="cplan-grid">
+        <div class="cplan-card">
+          <div class="cplan-icon">&#127909;</div>
+          <h5>Testimonial Filming</h5>
+          <p>Professional capture of real patient stories &mdash; their journey, results, and experience at your clinic</p>
+        </div>
+        <div class="cplan-card">
+          <div class="cplan-icon">&#128221;</div>
+          <h5>Custom Texts &amp; Scripts</h5>
+          <p>We write engaging scripts and captions tailored to your doctor&rsquo;s voice and expertise</p>
+        </div>
+        <div class="cplan-card">
+          <div class="cplan-icon">&#128197;</div>
+          <h5>Content Plan for Doctor</h5>
+          <p>A monthly content calendar with topics, formats, and posting schedule for the head physician</p>
+        </div>
+        <div class="cplan-card">
+          <div class="cplan-icon">&#127775;</div>
+          <h5>Brand Authority</h5>
+          <p>Position your doctor as the go-to expert &mdash; builds patient confidence and strengthens trust in the brand</p>
+        </div>
       </div>
-      <div style="display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap" class="reveal d3">
-        <div><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--sage)">11</div><div style="font-size:.72rem;color:var(--muted)">Videos produced</div></div>
-        <div><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--sage)">8</div><div style="font-size:.72rem;color:var(--muted)">Treatment categories</div></div>
-        <div><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--sage)">3</div><div style="font-size:.72rem;color:var(--muted)">Platforms optimized</div></div>
+      <div class="doctor-trust">
+        <div class="doctor-trust-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="doctor-trust-text">
+          <h5>Patients trust doctors who share their expertise</h5>
+          <p>Clinics with active physician content see 3&times; more consultation requests</p>
+        </div>
       </div>
     </div>
-    <div class="vid-grid-2 reveal d1">
-      <div class="vtile">
-        <a class="vtile-a" href="https://vimeo.com/user/13820033/folder/28271673" target="_blank">
-          <img src="images/image12.jpg" alt="Stem Cells Patient Testimonial">
-          <div class="vtile-play"><div class="vtile-play-btn"><div class="vtile-play-icon"></div></div></div>
-          <div class="vtile-lbl">Stem Cells Testimonial</div>
-        </a>
+    <div class="testi-visual">
+      <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap">
+        <div style="width:220px;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.16);background:#000;position:relative;aspect-ratio:9/16">
+          <iframe src="https://player.vimeo.com/video/1179777952?badge=0&autopause=0&player_id=0&app_id=58479" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Patient Testimonial 1"></iframe>
+        </div>
+        <div style="width:220px;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.16);background:#000;position:relative;aspect-ratio:9/16">
+          <iframe src="https://player.vimeo.com/video/1179779781?badge=0&autopause=0&player_id=0&app_id=58479" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Patient Testimonial 2"></iframe>
+        </div>
       </div>
-      <div class="vtile">
-        <a class="vtile-a" href="https://vimeo.com/user/13820033/folder/28271673" target="_blank">
-          <img src="images/image13.jpg" alt="ExoMind treatment video">
-          <div class="vtile-play"><div class="vtile-play-btn"><div class="vtile-play-icon"></div></div></div>
-          <div class="vtile-lbl">ExoMind &mdash; Brain Stimulation</div>
-        </a>
-      </div>
-      <div class="vtile vtile-wide">
-        <a class="vtile-a" href="https://vimeo.com/user/13820033/folder/28271673" target="_blank">
-          <img src="images/image14.jpg" alt="Full video library" style="object-position:top">
-          <div class="vtile-play"><div class="vtile-play-btn"><div class="vtile-play-icon"></div></div></div>
-          <div class="vtile-lbl">Ketamine &middot; NAD+ &middot; IV Vitamins &middot; Biologics &middot; HRT &middot; Weight Loss</div>
-        </a>
+      <div style="margin-top:1.2rem;text-align:center">
+        <div class="testi-float-badge" style="position:static;display:inline-flex"><div class="rec-dot"></div> Filmed &amp; edited by Yedino</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Instagram format &middot; Patient testimonials</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── AUTOMATION FLOW ─── -->
+<!-- ─── AUTOMATION FLOW — ANIMATED PHONES ─── -->
 <section class="section" id="automation">
   <div class="auto-intro">
     <div class="eyebrow reveal">Patient Acquisition Automation</div>
-    <h2 class="display reveal d1">Every new follower becomes a <em>qualified lead</em> automatically</h2>
-    <p class="body-text reveal d2">The moment someone discovers your clinic on Instagram, our system takes over &mdash; welcoming them, answering questions, and guiding them toward booking. No staff required.</p>
+    <h2 class="display reveal d1">Watch how every interaction becomes a <em>booked consultation</em></h2>
+    <p class="body-text reveal d2">Our automation runs 24/7 &mdash; from the moment someone comments or follows, all the way to a booked consultation and CRM entry. No staff involved.</p>
   </div>
 
-  <div class="flow-canvas reveal d1">
-    <div class="flow-row">
-      <div class="flow-node">
-        <div class="fnode-box trigger">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-          <div class="fnode-type">Trigger</div>
-          <div class="fnode-title">User follows your Instagram</div>
-          <div class="fnode-detail">Detected instantly via Instagram API integration</div>
-          <span class="fnode-badge">Auto-triggered</span>
+  <!-- PHONE: New Follower Funnel -->
+  <div class="phone-demo-row reveal">
+    <div class="process-info">
+      <div class="eyebrow">New Follower Funnel</div>
+      <h3>Every new follower enters a <em>conversion funnel</em></h3>
+      <p class="body-text" style="margin-bottom:1.5rem">The moment someone follows your clinic, they receive a welcome message with clear options &mdash; Book a Consultation or Learn More. Everything flows into your CRM automatically.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-content"><h4>New follower detected</h4><p>Instagram API detects the follow instantly</p></div>
         </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></div>
-          <div class="fnode-type">Action &middot; Instagram DM</div>
-          <div class="fnode-title">Welcome message sent instantly</div>
-          <div class="fnode-detail">"Aloha and welcome <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3H9m7.5 0H15m-3 4.5V15"/><circle cx="12" cy="12" r="3"/><path d="m8 16 1.5-1.5"/><path d="M14.5 9.5 16 8"/><path d="m8 8 1.5 1.5"/><path d="M14.5 14.5 16 16"/></svg> We offer advanced regenerative treatments. How can we guide you today?"</div>
-          <span class="fnode-badge">&lt; 5 seconds</span>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-content"><h4>Welcome message with funnel</h4><p>Personalized welcome + &ldquo;Book Consultation&rdquo; and &ldquo;Learn More About Our Services&rdquo; buttons</p></div>
         </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-          <div class="fnode-type">Patient Responds</div>
-          <div class="fnode-title">Quick reply buttons shown</div>
-          <div class="fnode-detail">Patient taps a button &mdash; no typing required &mdash; choosing their path forward</div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-content"><h4>Patient chooses their path</h4><p>Book goes straight to scheduling. Learn More enters an educational drip sequence</p></div>
         </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box outcome">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
-          <div class="fnode-type">Outcome</div>
-          <div class="fnode-title">Lead qualified &amp; routed</div>
-          <div class="fnode-detail">Patient either books a consultation or enters a treatment education sequence</div>
-          <span class="fnode-badge">24/7 Active</span>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-content"><h4>CRM integration</h4><p>All data flows to GHL or your custom CRM &mdash; contact created, tagged, and assigned to a pipeline</p></div>
         </div>
       </div>
     </div>
-
-    <div class="flow-branch">
-      <div class="branch-label">Patient chooses their path</div>
-      <div class="branch-node">
-        <h4><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> &ldquo;Book a Consultation&rdquo;</h4>
-        <p>Patient is sent directly to your booking page with a personalized message. Consultation request captured immediately.</p>
-        <div class="ctr"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> 3% tap-through rate</div>
+    <div class="phone-wrap">
+      <div class="phone p2" id="phone2">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="phone-header-av"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+            <div><div class="phone-header-name">hawaiiwellnessclinic</div><div class="phone-header-badge">Direct Messages</div></div>
+          </div>
+          <div class="chat-area">
+            <!-- Follow notification -->
+            <div class="chat-bubble system follow-notif">New follower: @mike.health</div>
+            <!-- Welcome message -->
+            <div class="chat-bubble to b1">Aloha Mike! Welcome to Hawaii Wellness Clinic. We specialize in regenerative medicine, ketamine therapy, and holistic wellness. How can we help you today?</div>
+            <!-- Funnel buttons -->
+            <div class="chat-actions act2">
+              <div class="chat-action-btn highlight">Book a Consultation</div>
+              <div class="chat-action-btn">Learn More About Our Services</div>
+            </div>
+            <!-- Patient responds -->
+            <div class="chat-bubble from b2">I&rsquo;d like to learn more about your services</div>
+            <!-- Education sequence -->
+            <div class="chat-bubble to b3">Great choice! Here are our most popular treatments. Tap any to get detailed info, pricing, and patient testimonials:</div>
+            <div class="chat-actions act3">
+              <div class="chat-action-btn">Ketamine Therapy</div>
+              <div class="chat-action-btn">NAD+ IV Drip</div>
+              <div class="chat-action-btn">Stem Cell Therapy</div>
+              <div class="chat-action-btn">Weight Loss (GLP-1)</div>
+            </div>
+            <!-- CRM badge -->
+            <div class="crm-badge crm2">
+              <div class="dot"></div>
+              Contact created in GHL &middot; Pipeline: New Lead
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="branch-node">
-        <h4><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> &ldquo;Explore Treatments&rdquo;</h4>
-        <p>Patient enters an educational sequence &mdash; receiving information about treatments that match their interest, building trust over time.</p>
-        <div class="ctr"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> 8% tap-through rate</div>
-      </div>
-    </div>
-
-    <div class="flow-stats">
-      <div class="fstat"><div class="val">100%</div><div class="lbl">Delivery rate</div></div>
-      <div class="fstat"><div class="val">54.1%</div><div class="lbl">Message open rate</div></div>
-      <div class="fstat"><div class="val">10.8%</div><div class="lbl">Click-through rate</div></div>
-      <div class="fstat"><div class="val">&lt;5s</div><div class="lbl">Response time</div></div>
     </div>
   </div>
 
-  <!-- second flow: keyword automation -->
-  <div style="margin-top:3rem" class="flow-canvas reveal d2">
-    <div class="flow-row">
-      <div class="flow-node">
-        <div class="fnode-box trigger">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div class="fnode-type">Trigger</div>
-          <div class="fnode-title">Patient comments a keyword</div>
-          <div class="fnode-detail">e.g. "SGB", "NAD+", "Ketamine" on your post</div>
-          <span class="fnode-badge">Comment trigger</span>
-        </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
-          <div class="fnode-type">Auto DM</div>
-          <div class="fnode-title">Personalized info sent instantly</div>
-          <div class="fnode-detail">Treatment-specific message delivered to their inbox within seconds</div>
-          <span class="fnode-badge">&lt; 5 seconds</span>
-        </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div class="fnode-type">Education Sequence</div>
-          <div class="fnode-title">Treatment details + FAQ</div>
-          <div class="fnode-detail">Patient learns what to expect, pricing, and how to get started &mdash; all automated</div>
-        </div>
-      </div>
-      <div class="flow-connector"><div class="fc-arrow"></div></div>
-      <div class="flow-node">
-        <div class="fnode-box outcome">
-          <div class="fnode-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
-          <div class="fnode-type">Outcome</div>
-          <div class="fnode-title">Warm lead handed to staff</div>
-          <div class="fnode-detail">Only educated, interested patients reach your team &mdash; ready to book</div>
-          <span class="fnode-badge">High intent lead</span>
-        </div>
-      </div>
-    </div>
+  <!-- Stats bar -->
+  <div class="flow-stats reveal" style="margin-top:3rem">
+    <div class="fstat"><div class="val">100%</div><div class="lbl">Delivery rate</div></div>
+    <div class="fstat"><div class="val">54.1%</div><div class="lbl">Message open rate</div></div>
+    <div class="fstat"><div class="val">10.8%</div><div class="lbl">Click-through rate</div></div>
+    <div class="fstat"><div class="val">&lt;5s</div><div class="lbl">Response time</div></div>
   </div>
 </section>
 
@@ -788,7 +988,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
     <div class="case-card reveal">
       <span class="case-badge">Hawaii Wellness Clinic &middot; Honolulu &amp; Kona</span>
       <h4>Full growth infrastructure for a leading regenerative medicine clinic</h4>
-      <p>Content system, patient communication automation, 4 landing pages, 11 educational videos, mobile app, and Linktree &mdash; a complete patient acquisition ecosystem built from the ground up.</p>
+      <p>Content system, patient communication automation, 4 landing pages, and 11 educational videos &mdash; a complete patient acquisition ecosystem built from the ground up.</p>
       <div class="case-nums">
         <div><div class="n">100%</div><div class="l">DM delivery rate</div></div>
         <div><div class="n">54.1%</div><div class="l">Open rate</div></div>
@@ -805,6 +1005,21 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
       </div>
     </div>
   </div>
+
+  <!-- Case previews -->
+  <div style="margin-top:2.5rem">
+    <div style="font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7cb882;margin-bottom:1.2rem">Featured Cases</div>
+    <div style="display:flex;flex-direction:column;gap:.5rem">
+      <a href="cases.html" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:#111;border:1px solid rgba(255,255,255,.07);border-radius:12px;text-decoration:none;transition:all .25s;color:#fff" onmouseover="this.style.borderColor='rgba(90,125,95,.4)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='#111'">
+        <div><span style="font-family:'Playfair Display',serif;font-size:.95rem">Hawaii Wellness Clinic</span><span style="font-size:.72rem;color:rgba(255,255,255,.35);margin-left:.75rem">Full growth infrastructure</span></div>
+        <span style="font-size:.78rem;color:#8fca95;font-weight:500">View Full Case &rarr;</span>
+      </a>
+      <a href="cases.html" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:#111;border:1px solid rgba(255,255,255,.07);border-radius:12px;text-decoration:none;transition:all .25s;color:#fff" onmouseover="this.style.borderColor='rgba(90,125,95,.4)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='#111'">
+        <div><span style="font-family:'Playfair Display',serif;font-size:.95rem">UFC Event Coverage</span><span style="font-size:.72rem;color:rgba(255,255,255,.35);margin-left:.75rem">Media &amp; content production</span></div>
+        <span style="font-size:.78rem;color:#8fca95;font-weight:500">View Case &rarr;</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ─── WHY ─── -->
@@ -815,7 +1030,7 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
     <div class="wi reveal"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h4>Niche Expertise</h4><p>We specialize exclusively in wellness and regenerative clinics. We know the patient psychology, the treatment landscape, and what actually converts.</p></div>
     <div class="wi reveal d1"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg></div><h4>Patient-First Messaging</h4><p>We understand how patients research treatments like ketamine or stem cells &mdash; and build every piece of content around their actual questions and concerns.</p></div>
     <div class="wi reveal d2"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Systems, Not Campaigns</h4><p>We build long-term digital infrastructure, not one-off ad campaigns. Your growth continues even when you&rsquo;re not actively spending on ads.</p></div>
-    <div class="wi reveal d1"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Saves Staff Time</h4><p>Our automation gives your front desk hours back every week by handling repetitive inquiries and patient follow-up automatically.</p></div>
+    <div class="wi reveal d1"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Media Presence</h4><p>We build your brand&rsquo;s voice across platforms &mdash; so when a patient finds you, they already trust you before the first call.</p></div>
     <div class="wi reveal d2"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><h4>Conversion Focused</h4><p>Every asset &mdash; every post, page, and message &mdash; is designed with one goal: turning online interest into booked consultations.</p></div>
     <div class="wi reveal d3"><div class="wi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-1"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div><h4>True Partnership</h4><p>We embed ourselves in your growth. As your clinic evolves, we optimize and expand the systems continuously &mdash; not just at the start.</p></div>
   </div>
@@ -835,10 +1050,9 @@ nav svg { width:14px; height:14px; vertical-align:middle; }
 <footer>
   <div class="flogo">Yedino<em>.</em></div>
   <div class="flinks">
-    <a href="#who">Who We Help</a>
     <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
     <a href="#automation">Automation</a>
+    <a href="cases.html">Cases</a>
     <a href="#results">Results</a>
     <a href="#contact">Contact</a>
   </div>
@@ -862,4 +1076,34 @@ function closeModal(){document.getElementById('modal').classList.remove('open');
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>50)nav.style.boxShadow='0 2px 20px rgba(0,0,0,.08)';
+  else nav.style.boxShadow='none';
+});
+
+/* Phone animation loop */
+function restartPhoneAnimation(phone){
+  const clone=phone.cloneNode(true);
+  phone.parentNode.replaceChild(clone,phone);
+  return clone;
+}
+let ph2=document.getElementById('phone2');
+if(ph2){setInterval(()=>{ph2=restartPhoneAnimation(ph2);ph2.id='phone2'},11000)}
+
+/* Platform card cycling */
+(function(){
+  const cards=document.querySelectorAll('#platformAnim .platform-card');
+  if(!cards.length)return;
+  let idx=0;
+  function cycle(){
+    cards.forEach(c=>c.classList.remove('active'));
+    cards[idx].classList.add('active');
+    idx=(idx+1)%cards.length;
+  }
+  cycle();
+  setInterval(cycle,3000);
+})();
+</script>
+</body>
+</html>
