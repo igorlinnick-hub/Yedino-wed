@@ -127,6 +127,14 @@ h1{font-size:clamp(28px,7.4vw,36px);line-height:1.08;letter-spacing:-.035em;font
 .nums span{display:block;margin-top:3px;font-family:var(--mono);font-size:9px;line-height:1.3;letter-spacing:.05em;text-transform:uppercase;color:var(--mist)}
 .case.dark .nums span{color:rgba(255,255,255,.5)}
 
+/* portfolio rows */
+.plist{margin-top:18px;display:grid;gap:8px}
+.prow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"n k" "b b";align-items:center;gap:2px 12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 16px;text-decoration:none;box-shadow:0 8px 24px -20px rgba(11,18,32,.35);transition:transform .2s,border-color .2s}
+.prow:hover{transform:translateY(-2px);border-color:#B9CBF5}
+.prow .pn{grid-area:n;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.prow .pk{grid-area:k;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);text-align:right}
+.prow b{grid-area:b;font-size:13px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
 /* what we build */
 .grid2{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media (max-width:400px){.grid2{grid-template-columns:1fr}}
@@ -223,36 +231,27 @@ h1{font-size:clamp(28px,7.4vw,36px);line-height:1.08;letter-spacing:-.035em;font
   <section id="system" class="up" style="--i:3">
     <div class="eyebrow">How the system works</div>
     <h2>One system, four parts — from a new follower to a booked consultation.</h2>
-    <p class="lead">Most clinics have the pieces: a good Instagram, a website, a front desk. What's missing is the system that connects them — so nobody has to chase leads by hand.</p>
+    <p class="lead">Most clinics have the pieces — Instagram, a website, a front desk. We add the system that connects them, so nobody chases leads by hand.</p>
     <div class="map" aria-label="System map">
       <span>Content</span><i>→</i><span>DM automation</span><i>→</i><span>Treatment page</span><i>→</i><span>CRM follow-up</span><i>→</i><span class="end">Consultation</span>
     </div>
     <div class="steps">
-      <div class="step"><div class="n">01</div><div><b>Audit the patient journey</b><p>We map where interest is lost today — unanswered DMs, pages that don't explain the treatment, no follow-up.</p></div></div>
-      <div class="step"><div class="n">02</div><div><b>Install the system</b><p>Content system, 24/7 patient-DM automation, treatment landing pages and CRM pipeline — built around your clinic's actual treatments.</p></div></div>
-      <div class="step"><div class="n">03</div><div><b>Run and optimize monthly</b><p>We operate it: content goes out, every inquiry gets answered in seconds, every lead is nurtured until they book.</p></div></div>
-      <div class="step"><div class="n">04</div><div><b>Report on bookings, not likes</b><p>One monthly number that matters: consultations booked — plus what we're changing next.</p></div></div>
+      <div class="step"><div class="n">01</div><div><b>Audit the patient journey</b><p>Where interest is lost today: DMs, pages, follow-up.</p></div></div>
+      <div class="step"><div class="n">02</div><div><b>Install the system</b><p>Content, 24/7 patient DMs, treatment pages, CRM.</p></div></div>
+      <div class="step"><div class="n">03</div><div><b>Run it monthly</b><p>We operate and optimize — your team just sees bookings.</p></div></div>
+      <div class="step"><div class="n">04</div><div><b>Report on bookings, not likes</b><p>One number a month: consultations booked.</p></div></div>
     </div>
   </section>
 
-  <!-- RESULTS / PORTFOLIO -->
-  <section id="results" class="up" style="--i:4">
-    <div class="eyebrow">Client results</div>
-    <h2>What the system does in a real clinic.</h2>
-    <div class="cases">
-      <article class="case dark">
-        <div class="kind">Regenerative medicine · Honolulu &amp; Kona</div>
-        <h3>Hawaii Wellness Clinic</h3>
-        <p>Full patient-acquisition system built from the ground up: content system, DM automation, 4 treatment landing pages and 11 educational videos.</p>
-        <div class="nums"><div><b>3.2×</b><span>Consultations</span></div><div><b>54%</b><span>DM open rate</span></div><div><b>100%</b><span>DM delivery</span></div></div>
-      </article>
-      <article class="case">
-        <div class="kind">Ketamine &amp; mental health clinic</div>
-        <h3>From scattered DMs to automated intake</h3>
-        <p>The team was spending 15+ hours a week answering the same questions by hand. We installed DM automation and a dedicated treatment page.</p>
-        <div class="nums"><div><b>+127%</b><span>Consults booked</span></div><div><b>−80%</b><span>Manual replies</span></div><div><b>&lt;60s</b><span>Response</span></div></div>
-      </article>
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="up" style="--i:4">
+    <div class="eyebrow">Portfolio</div>
+    <h2>Real clinics. Real numbers. Explained on video.</h2>
+    <div class="plist">
+      <a class="prow" href="https://www.yedinosystems.com/cases.html"><span class="pn">Hawaii Wellness Clinic</span><span class="pk">Regenerative medicine</span><b>3.2× consultations</b></a>
+      <a class="prow" href="https://www.yedinosystems.com/cases.html"><span class="pn">Ketamine clinic</span><span class="pk">Mental health</span><b>+127% consults</b></a>
     </div>
+    <a class="btn-ghost" style="margin-top:10px" href="https://www.yedinosystems.com/cases.html">See the portfolio →</a>
   </section>
 
   <!-- WHAT WE BUILD -->
@@ -260,10 +259,10 @@ h1{font-size:clamp(28px,7.4vw,36px);line-height:1.08;letter-spacing:-.035em;font
     <div class="eyebrow">What's inside</div>
     <h2>The four parts we build and run for you.</h2>
     <div class="grid2">
-      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></div><b>Content system</b><p>Reels, stories and posts that explain treatments and build trust before the first call.</p></div>
-      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z"/></svg></div><b>Patient-DM automation</b><p>Every follow, comment and DM answered in seconds, qualified and guided to booking — 24/7.</p></div>
-      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 20V9"/></svg></div><b>Treatment landing pages</b><p>One page per treatment that answers the patient's questions and makes booking the obvious next step.</p></div>
-      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><b>CRM follow-up &amp; reporting</b><p>Leads land in your CRM, get nurtured until they book, and you see one monthly number: consultations.</p></div>
+      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></div><b>Content system</b><p>Reels and posts that explain treatments and build trust before the first call.</p></div>
+      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z"/></svg></div><b>Patient-DM automation</b><p>Every DM answered in seconds and guided to booking — 24/7.</p></div>
+      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 20V9"/></svg></div><b>Treatment landing pages</b><p>One page per treatment that answers questions and makes booking the next step.</p></div>
+      <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><b>CRM follow-up &amp; reporting</b><p>Leads land in your CRM, get nurtured until they book. You see one number: consultations.</p></div>
     </div>
   </section>
 
@@ -274,9 +273,7 @@ h1{font-size:clamp(28px,7.4vw,36px);line-height:1.08;letter-spacing:-.035em;font
     <div class="faq">
       <details><summary>What exactly do you build?</summary><p>A patient-acquisition system: a content system for Instagram, automated patient DMs, a landing page per treatment, and a CRM pipeline with follow-up. We build it and run it — you don't need an in-house marketer.</p></details>
       <details><summary>Will this work for my type of clinic?</summary><p>We work only with wellness and regenerative clinics — ketamine and mental health, IV &amp; NAD+, stem cell and joint regeneration, functional medicine, medical weight loss. If your patients research treatments before booking, the system applies.</p></details>
-      <details><summary>Do we need to run ads?</summary><p>No. The system is built on organic Instagram interest first. If you already run ads or want to, we align the funnel so paid traffic lands in the same automation — but it's not a requirement.</p></details>
       <details><summary>How much work is this for our staff?</summary><p>About an hour a week at the start — treatment details, a few filming slots, approvals. After that the system runs; your front desk only sees booked consultations in the calendar.</p></details>
-      <details><summary>How fast does it go live?</summary><p>DM automation and the first treatment page are typically live within the first weeks; the full system, including the content engine, within the first month. Results compound from there.</p></details>
       <details><summary>What happens on the growth audit call?</summary><p>Twenty minutes. We look at your Instagram, website and current follow-up together and map where patients are being lost. You keep the map whether or not we work together.</p></details>
     </div>
   </section>
