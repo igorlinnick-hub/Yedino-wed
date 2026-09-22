@@ -148,6 +148,27 @@ img,svg{display:block;max-width:100%;}
 .links__note{text-align:center;font-size:12px;color:var(--faint);padding-top:12px;}
 .links__note b{color:var(--ink-2);font-weight:600;}
 
+/* ── founder / intro video ─────────────────────────────────────────────── */
+.intro{
+  position:relative;border-radius:var(--r-l);overflow:hidden;background:#0B1220;
+  border:1px solid var(--line);box-shadow:var(--shadow-m);aspect-ratio:16/9;
+}
+.intro--portrait{aspect-ratio:9/16;max-width:420px;margin:0 auto;}
+.intro__v{width:100%;height:100%;object-fit:cover;display:block;background:#0B1220;}
+.intro__play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:72px;height:72px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(255,255,255,.94);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(11,18,32,.35);
+  transition:transform .18s ease,opacity .25s ease;
+}
+.intro__play svg{width:26px;height:26px;margin-left:3px;}
+.intro__play:hover{transform:translate(-50%,-50%) scale(1.06);}
+.intro.is-playing .intro__play{opacity:0;pointer-events:none;}
+.intro__cap{margin-top:12px;text-align:center;font-size:13.5px;color:var(--muted);}
+@media (max-width:640px){ .intro__play{width:60px;height:60px;} .intro__play svg{width:22px;height:22px;} }
+
 /* ── section furniture ──────────────────────────────────────────────────── */
 .sec{padding:54px 20px 0;}
 .eyebrow{
@@ -1046,6 +1067,21 @@ footer{text-align:center;padding:34px 0 20px;color:var(--faint);font-size:12.5px
   <p class="links__note rv">Honolulu, HI · working with US clinics · <b>reply within one business day</b></p>
 </nav>
 
+
+<!-- ═══════════════════════════════════════════════ FOUNDER / INTRO VIDEO -->
+<!-- Drop the file in site/clips/ (mp4, H.264) and a poster frame next to it,
+     then: remove `hidden` below and point src/poster at the file. -->
+<section class="wrap sec" id="intro" hidden>
+  <div class="intro rv">
+    <video class="intro__v" id="introVideo"
+           src="" poster="" playsinline preload="metadata" controls></video>
+    <button class="intro__play" id="introPlay" type="button" aria-label="Play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2l12 6.8-12 6.8V5.2z"/></svg>
+    </button>
+  </div>
+  <p class="intro__cap rv">The doctor you would be working with, and what the first month looks like.</p>
+</section>
+
 <!-- ═══════════════════════════════════════════════════════════ THE CHAIN -->
 <section class="wrap sec sec--chain" id="chain">
   <span class="eyebrow rv">The chain · 5 blocks</span>
@@ -1577,6 +1613,18 @@ footer{text-align:center;padding:34px 0 20px;color:var(--faint);font-size:12.5px
           note.innerHTML = 'That did not go through. <a href="mailto:igor@yedinosystems.com?subject=Clinic%20intro&body=' + body + '">Send it as an email instead</a>.';
         });
     });
+  }
+
+
+  /* ── intro video: our play button, then the native controls ─────────── */
+  var introPlay = document.getElementById('introPlay');
+  var introVideo = document.getElementById('introVideo');
+  if (introPlay && introVideo) {
+    introPlay.addEventListener('click', function(){
+      introVideo.play();
+    });
+    introVideo.addEventListener('play', function(){ introVideo.closest('.intro').classList.add('is-playing'); });
+    introVideo.addEventListener('pause', function(){ introVideo.closest('.intro').classList.remove('is-playing'); });
   }
 
   /* ── sticky CTA appears past the hero, hides over the final CTA ──────── */
