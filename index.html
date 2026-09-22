@@ -42,6 +42,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
 body{
+  position:relative;
   font-family:'Inter',system-ui,-apple-system,sans-serif;
   color:var(--ink);
   background-color:var(--bg);
@@ -62,6 +63,50 @@ img,svg{display:block;max-width:100%;}
 /* ── reveal ─────────────────────────────────────────────────────────────── */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
 .rv.in{opacity:1;transform:none;}
+
+/* ── aurora: slow light over the top of the page, nothing below it ──────── */
+.aurora{
+  position:absolute;top:0;left:0;right:0;z-index:-1;pointer-events:none;overflow:hidden;
+  height:820px;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
+}
+.aurora i{
+  position:absolute;display:block;border-radius:50%;
+  filter:blur(70px);will-change:transform;
+}
+.aurora .a1{
+  width:78vw;height:52vw;top:-14vw;left:-18vw;
+  background:radial-gradient(circle at 50% 50%,rgba(37,99,235,.42),rgba(37,99,235,0) 68%);
+  animation:aur1 26s ease-in-out infinite alternate;
+}
+.aurora .a2{
+  width:70vw;height:46vw;top:-8vw;right:-16vw;
+  background:radial-gradient(circle at 50% 50%,rgba(14,165,233,.40),rgba(14,165,233,0) 68%);
+  animation:aur2 31s ease-in-out infinite alternate;
+}
+.aurora .a3{
+  width:62vw;height:40vw;top:16vw;left:12vw;
+  background:radial-gradient(circle at 50% 50%,rgba(124,58,237,.22),rgba(124,58,237,0) 70%);
+  animation:aur3 37s ease-in-out infinite alternate;
+}
+.aurora .a4{
+  width:54vw;height:34vw;top:26vw;right:4vw;
+  background:radial-gradient(circle at 50% 50%,rgba(45,212,191,.26),rgba(45,212,191,0) 70%);
+  animation:aur4 43s ease-in-out infinite alternate;
+}
+@keyframes aur1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(12vw,6vw,0) scale(1.18)}}
+@keyframes aur2{from{transform:translate3d(0,0,0) scale(1.08)}to{transform:translate3d(-14vw,8vw,0) scale(.92)}}
+@keyframes aur3{from{transform:translate3d(0,0,0) scale(.95)}to{transform:translate3d(16vw,-6vw,0) scale(1.22)}}
+@keyframes aur4{from{transform:translate3d(0,0,0) scale(1.12)}to{transform:translate3d(-10vw,-8vw,0) scale(.9)}}
+@media (max-width:640px){
+  .aurora{height:660px;}
+  .aurora i{filter:blur(52px);}
+  .aurora .a1{width:120vw;height:90vw;left:-30vw;}
+  .aurora .a2{width:110vw;height:80vw;right:-28vw;}
+  .aurora .a3{width:100vw;height:70vw;left:-10vw;}
+  .aurora .a4{width:90vw;height:64vw;right:-14vw;}
+}
 
 /* ── bio head ───────────────────────────────────────────────────────────── */
 .bio{padding:44px 20px 8px;text-align:center;}
@@ -917,7 +962,7 @@ footer{text-align:center;padding:34px 0 20px;color:var(--faint);font-size:12.5px
 
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;transition:none;}
-  .ui *,.link-strip .p-line{animation:none !important;}
+  .ui *,.link-strip .p-line,.aurora i{animation:none !important;}
   .u-in{opacity:1;}
   .sticky{transition:none;}
 }
@@ -956,6 +1001,8 @@ footer{text-align:center;padding:34px 0 20px;color:var(--faint);font-size:12.5px
 <body>
 
 <!-- ══════════════════════════════════════════════ BIO HEAD (link-in-bio) -->
+<div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i></div>
+
 <header class="wrap bio" id="top">
   <svg class="bio__mark rv" viewBox="0 0 1024 1024" role="img" aria-label="Yedino Systems">
     <defs><linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient></defs>
